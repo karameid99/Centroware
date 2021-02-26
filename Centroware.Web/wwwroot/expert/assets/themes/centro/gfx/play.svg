@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="78px" viewBox="0 0 42 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 15 Copy</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="main-video" transform="translate(-1013.000000, -533.000000)" fill="#FFFFFF">
+            <g id="Group-15-Copy" transform="translate(1013.000000, 533.000000)">
+                <text id="Play" font-family="BebasNeue-Regular, Bebas Neue" font-size="18" font-weight="normal" letter-spacing="1.8">
+                    <tspan x="1.553" y="73">Play</tspan>
+                </text>
+                <polygon id="Triangle" transform="translate(21.000000, 25.500000) rotate(-270.000000) translate(-21.000000, -25.500000) " points="21 5 46 46 -4 46"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

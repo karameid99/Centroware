@@ -1,0 +1,825 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<div class="trailer">
+    <span class="close"><i></i></span>
+    <div class="pause-video" onclick="pauseVideo()"></div>
+    <div class="play-video" onclick="playVideo()"></div>
+    <div class="mute-sound" onclick="toggleMute();">
+        <div class="lottie no-trans">
+            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_nfWP98.json"
+                           background="transparent.html" speed="1" loop autoplay></lottie-player>
+        </div> <span id="soundtext">Sound On</span>
+    </div><video preload="1" autoplay="" id='video' poster="/expert/assets/uploads/2020/08/Orange-BG.jpg">
+        <source type="video/mp4" src="/expert/assets/uploads/2020/08/Uxpert-Showreel-WEB.m4v">
+    </video>
+</div>
+<div id="scroll-container" class="container-fluid">
+    <section class="header-space"></section>
+    <section class="hp-section hp-01 hp-01-01" id="hp-01">
+        <div class="in">
+            <div class="table">
+                <div class="table-cell">
+                    <div class='inside'>
+                        <p style="display:none;"><span class="f-letter">OUR</span>EXPERIENCE MATTERS</p>
+                        <div class="hp-animation hp-animation-desktop hide-in-mobile">
+                            <img src='/expert/assets/uploads/2020/09/static.gif' alt='' />
+                        </div>
+                        <div class="hp-animation hp-animation-mobile hide-in-desctop">
+                            <img src='/expert/assets/uploads/2020/09/static-mobile.gif' alt='' />
+                        </div>
+                        <div class='play'>
+                            <span></span><span></span><span></span>
+                            <figure>Play Showreel</figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hp-section hp-02 hp-01-02"></section>
+    <section class="hp-section hp-03" style="display:none;" data-type="backgrounds" data-speed="10"
+             style="background-image:url()">
+        <div class="table">
+            <div class="table-cell"></div>
+        </div>
+    </section>
+    <section id='toScroll'></section>
+    <section class="hp-section hp-04">
+        <div class="in">
+            <div class="who-we-are wow">
+                <div class="title">
+                    <div class='sline'></div>
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins"><span class="d-title">Who</span></span>
+                    </div>
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins">
+                            <span class="d-title">
+                                We
+                                Are
+                            </span>
+                        </span>
+                    </div> <span class="float-sumbol"></span>
+                </div>
+                <div class="description">
+                    <div class="de-title">
+                        <p><strong>We design</strong><br /> <em>beautiful user experiences</em></p>
+                    </div>
+                    <div class="de-desc">
+                        <p>
+                            Our mission is to create a better digital world and make our customers happy.<br /> We
+                            possess a winning combination of creative, technical and people skills that not only
+                            make us fun to work with, but ensure we get the job done, and done well.
+                        </p>
+                    </div> <a href='about.html' aria-label="More about us" class="more-in">
+                        <span class='arrow-a black-arrow'><i></i></span> <span class="more-link">
+                            <i>
+                                More about
+                                us
+                            </i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hp-section hp-05 ">
+        <div class="in">
+            <div class="what-we-do wow">
+                <div class="title">
+                    <div class='sline' data-wow-delay="0.1s"></div>
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins">
+                            <span class="d-title">What</span>
+                        </span>
+                    </div>
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins">
+                            <span class="d-title">
+                                We
+                                Do
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="items">
+                    <ul>
+                        <li class="sitem item">
+                            <div class="thumb">
+                                <div class="icon">
+                                    <img src='/expert/assets/uploads/2020/08/Research-and-Strategy.svg'
+                                         alt=''>
+                                </div>
+                                <div class="description">
+                                    <p><strong>Research</strong><br /> <strong>&amp; Strategy</strong></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sitem item">
+                            <div class="thumb">
+                                <div class="icon">
+                                    <img src='/expert/assets/uploads/2020/08/User-Experience-Design.svg'
+                                         alt=''>
+                                </div>
+                                <div class="description">
+                                    <p><strong>UX</strong><br /> <strong>Design</strong></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sitem item">
+                            <div class="thumb">
+                                <div class="icon">
+                                    <img src='/expert/assets/uploads/2020/08/visual-design.svg' alt=''>
+                                </div>
+                                <div class="description">
+                                    <p><strong>Visual</strong><br /> <strong>Design</strong></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sitem item">
+                            <div class="thumb">
+                                <div class="icon">
+                                    <img src='/expert/assets/uploads/2020/08/usability-testing.svg'
+                                         alt=''>
+                                </div>
+                                <div class="description">
+                                    <p><strong>Usability</strong><br /> <strong>Testing</strong></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </section>
+    <section class="hp-section hp-06">
+        <div class="in">
+            <div class="who-we-are wow">
+                <div class="title">
+                    <div class='sline'></div>
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins"><span class="d-title">Our</span></span>
+                    </div>
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins">
+                            <span class="d-title">Work</span>
+                        </span>
+                    </div> <span class="float-sumbol"></span>
+                </div>
+                <div class="description">
+                    <div class="de-title">
+                        <p><strong>We love our work</strong><br /> <em>and it shows</em></p>
+                    </div>
+                    <div class="de-desc">
+                        <p>
+                            With hundreds of projects completed for industry-leading clients, we’ve done almost every
+                            type of project.<br /> Many of which became award winners and made us proud parents.
+                        </p>
+                    </div> <a href='work.html' aria-label="See them all" class="more-in">
+                        <span class='arrow-a black-arrow'><i></i></span> <span class="more-link">
+                            <i>
+                                See them
+                                all
+                            </i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hp-section hp-07">
+        <ul class='post-object'>
+            <li class="item wow animate__fadeInUp">
+                <a href='work/apps/leumi-digital-account.html'
+                   class="portfolio work" data-cat="work" aria-label="Leumi &#8211; Digital Account">
+                    <div class="portfolio-wrapper b-lazy"
+                         data-src="/expert/assets/uploads/2020/05/%d7%a8%d7%90%d7%a9%d7%99-1024x541.jpg">
+                        <img src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw = = alt='' />
+                        <div class="label">
+                            <div class="label-text">
+                                <div class="text-title">Leumi &#8211; Digital Account</div> <span class="text-category">mobile app</span> <span class="text-slug">
+                                    Opening an
+                                    account made easy
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item wow animate__fadeInUp">
+                <a href='work/websites/gift-card-order.html'
+                   class="portfolio work" data-cat="work" aria-label="MAX &#8211; Digital Gift Card">
+                    <div class="portfolio-wrapper b-lazy"
+                         data-src="/expert/assets/uploads/2020/09/%d7%aa%d7%9e%d7%95%d7%a0%d7%94-%d7%a8%d7%90%d7%a9%d7%99%d7%aa-1024x540.jpg">
+                        <img src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw = = alt='' />
+                        <div class="label">
+                            <div class="label-text">
+                                <div class="text-title">MAX &#8211; Digital Gift Card</div> <span class="text-category">website</span> <span class="text-slug">
+                                    Giving is
+                                    receiving!
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="item wow animate__fadeInUp">
+                <a href='work/pos/dominos-pos.html' class="portfolio work"
+                   data-cat="work" aria-label="Domino&#8217;s &#8211; Pizza Ordering">
+                    <div class="portfolio-wrapper b-lazy"
+                         data-src="/expert/assets/uploads/2020/06/herogradient-1024x540.jpg">
+                        <img src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw = = alt='' />
+                        <div class="label">
+                            <div class="label-text">
+                                <div class="text-title">Domino&#8217;s &#8211; Pizza Ordering</div> <span class="text-category">point of sale</span> <span class="text-slug">
+                                    Keeping pizza
+                                    deliveries hot!
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="hp-section hp-08">
+        <div class="in">
+            <div class="ins-out wow">
+                <ul class="awards-list awards">
+                    <li>
+                        <div class="main-title">
+                            <div class='sline'></div>
+                            <div class='d-out'> <span data-count='25'>1</span></div>
+                            <div class='d-out'>
+                                <span class="preloader-el title-ins">
+                                    <span class="d-title">Awards</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="de-desc">
+                            <p>We’re proud to take part in our clients’ success</p>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="awards-list awards-items in">
+                    <li>
+                        <ul class="item">
+                            <li data-count='13'>1</li>
+                            <li>
+                                <p><strong>Webi</strong><br /> Awards</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="item">
+                            <li data-count='4'>1</li>
+                            <li>
+                                <p><strong>Mobi</strong><br /> Awards</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="item">
+                            <li data-count='6'>1</li>
+                            <li>
+                                <p><strong>IT</strong><br /> Awards</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="item">
+                            <li data-count='1'>1</li>
+                            <li>
+                                <p><strong>Product of</strong><br /> <strong>the Year</strong></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="item">
+                            <li data-count='1'>1</li>
+                            <li>
+                                <p><strong>Best Mobile</strong><br /> Awards</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="hp-section hp-09 bcg">
+        <div id="parallax1" class="parallaxParent">
+            <div class='no-trans' style="background-image:url(/expert/assets/uploads/2020/07/clients.jpg)"></div>
+        </div>
+        <div class="in">
+            <div class="table-cell title wow">
+                <div class='d-out'>
+                    <span class="preloader-el title-ins">
+                        <span class="d-title s-title">
+                            We
+                            Make
+                        </span>
+                    </span>
+                </div>
+                <div class="d-out">
+                    <span class="preloader-el title-ins">
+                        <span class="d-title it-title">
+                            our
+                            customers
+                        </span>
+                    </span>
+                </div>
+                <div class='d-out'>
+                    <span class="preloader-el title-ins">
+                        <span class="d-title s-title">Happy</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hp-section hp-10 wow">
+        <div class="in">
+            <div class="title">
+                <div class='sline'></div>
+                <div class="ded-title">
+                    <p><strong>Here are some of</strong><br /> <em>our friends</em></p>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="item">
+                    <div class="title">Organizations</div>
+                </div>
+                <div class="item">
+                    <div class="title">Technology</div>
+                </div>
+            </div>
+            <div class="slider-for">
+                <div class="item">
+                    <ul>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%93%d7%95%d7%9e%d7%99%d7%a0%d7%95%d7%a1.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/05/%d7%91%d7%a0%d7%a7-%d7%9c%d7%90%d7%95%d7%9e%d7%99.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/05/%d7%91%d7%99%d7%98%d7%95%d7%97-%d7%99%d7%a9%d7%99%d7%a8.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%a4%d7%a0%d7%92%d7%95.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%94%d7%a8%d7%a5.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%94%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%a8%d7%a9%d7%aa.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%a8%d7%9b%d7%91%d7%aa.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/08/max.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%a6%d7%b3%d7%9e%d7%a4%d7%99%d7%95%d7%9f.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%9c%d7%90%d7%95%d7%9e%d7%99%d7%aa.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%a0%d7%98%d7%a4%d7%99%d7%9d.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/05/aig.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/yes.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%96%d7%90%d7%a4.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/05/%d7%91%d7%a0%d7%a7-%d7%94%d7%a4%d7%95%d7%a2%d7%9c%d7%99%d7%9d.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%94%d7%a1%d7%a4%d7%a8%d7%99%d7%94-%d7%94%d7%9c%d7%90%d7%95%d7%9e%d7%99%d7%aa.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%9e%d7%a0%d7%95%d7%a8%d7%94.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%a4%d7%a1%d7%92%d7%95%d7%aa.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/10/shomera_new_black-1.svg"
+                                     alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/avgol.svg" alt="" /></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <ul>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/08/netapp.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/08/imperva.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/bird.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/bright-machines.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/orbotech.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/switchbee.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/continuity.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/dialogic.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/ripples.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/game-effective.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/personetics.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/powermat.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/redbend.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/sealights.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/shoodoo.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/08/okapi.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/08/massivit.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/08/anagog.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/08/frisimos.svg" alt="" /></div>
+                        </li>
+                        <li>
+                            <div class="out">
+                                <img src="/expert/assets/uploads/2020/07/%d7%92%d7%9c%d7%90%d7%95%d7%a8.svg" alt="" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="out"> <img src="/expert/assets/uploads/2020/07/pontis.svg" alt="" /></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hp-section hp-11 wow">
+        <div class="y-line"></div>
+        <div class="in">
+            <div class="title-section">
+                <div class="left">
+                    <div class="title">
+                        <div class='sline'></div>
+                        <div class='d-out'>
+                            <span class="preloader-el title-ins">
+                                <span class="d-title">What</span>
+                            </span>
+                        </div>
+                        <div class='d-out'>
+                            <span class="preloader-el title-ins">
+                                <span class="d-title">
+                                    They
+                                    Say
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="description de-desc">
+                        <p>We swear we didn&#8217;t force them to</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="in">
+                <div class="testimonials-slider">
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Ido-Fridman-Dominos-150x150.png' alt=''>
+                                </div>
+                                <div class="name">Ido Fridman</div>
+                                <div class="role">VP Marketing and Biz Dev</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/domino-s-pizza.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>Here’s my number:<br /> +972-52-4576588</p>
+                                <p>
+                                    I guess this says it all about my level of satisfaction with UXPERT’s work and
+                                    character.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/TAL-LUPO-1-e1595850545965-150x150.jpg'
+                                         alt=''>
+                                </div>
+                                <div class="name">Tal Lupo</div>
+                                <div class="role">UX Manager</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/%d7%91%d7%a0%d7%a7-%d7%9c%d7%90%d7%95%d7%9e%d7%99.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>
+                                    Thank you for your uncompromising professionalism and innovative work, unique and
+                                    creative design and for your brilliant animation.<br /> And to top it all –
+                                    thank you for your outstanding cooperation and caring.
+                                </p>
+                                <p>What a bunch of talented people!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Amichay-Ziv-SwitchBee-e1593932269211-150x150.jpg'
+                                         alt=''>
+                                </div>
+                                <div class="name">Amichai Ziv</div>
+                                <div class="role">CEO</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/switchbee2.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>It’s been an amazing experience and a great honor working with you.</p>
+                                <p>
+                                    You are top class experts. Quick to learn, sharp-minded and full of creativity
+                                    backed by years of experience. The results are way above and beyond our
+                                    expectations. Huge thanks!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Miri-Cohen-IAA.jpg' alt=''>
+                                </div>
+                                <div class="name">Miri Cohen</div>
+                                <div class="role">Head of Mobile Dept.</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/%d7%a8%d7%a9%d7%95%d7%aa-%d7%a9%d7%93%d7%95%d7%aa-%d7%94%d7%aa%d7%a2%d7%95%d7%a4%d7%94_no_bg.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>
+                                    I would like to commend you for another project well done!<br /> Your product was
+                                    creative, professional, and perfectly suited for our needs. You met tight
+                                    schedules while maintaining highest standards.<br /> On a personal note, your
+                                    team is awesome!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Micky-Sapir-Videa-Leumi-150x150.png' alt=''>
+                                </div>
+                                <div class="name">Micky Sapir</div>
+                                <div class="role">VP Product</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/videa.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>
+                                    Working with UXPERT is so much more than working with a UX designer.<br /> They
+                                    form a true partnership providing full support along the entire process. True
+                                    professionals with a passion to perform, creative out-of-the-box thinking and
+                                    ability to deliver best of breed products.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Yehuda-Salant-Israel-Railways-e1594221863363-150x150.jpg'
+                                         alt=''>
+                                </div>
+                                <div class="name">Yehuda Salant</div>
+                                <div class="role">Ticketing Systems Manager</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/Israel_Railways_Logo.svg.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>Working with UXPERT is pure fun.</p>
+                                <p>
+                                    Responsive and wonderful professionals that bring the smartest solutions to any
+                                    problem every single time.
+                                </p>
+                                <p>
+                                    Have been working with them for over 10 years now and counting.<br /> Highly
+                                    recommended!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/merav-klipper-IDI-150x150.png' alt=''>
+                                </div>
+                                <div class="name">Merav Klipper-Peretz</div>
+                                <div class="role">VP Marketing</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/%d7%91%d7%99%d7%98%d7%95%d7%97-%d7%99%d7%a9%d7%99%d7%a8-%d7%9c%d7%95%d7%92%d7%95-%d7%a8%d7%97%d7%91.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>
+                                    UXPERT have designed many of our digital assets.<br /> They always come up with a
+                                    creative approach and clever designs, while keeping business results in mind.
+                                </p>
+                                <p>It&#8217;s a pleasure working with you guys!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Guy-Sela-Hertz-e1594222311824-150x150.jpg'
+                                         alt=''>
+                                </div>
+                                <div class="name">Guy Sela</div>
+                                <div class="role">Projects Manager</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/%d7%94%d7%a8%d7%a5.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>
+                                    One of the smartest decisions we made when developing our apps, was not to skimp
+                                    on UX. This is why we chose UXpert and the results were breathtaking.
+                                </p>
+                                <p>
+                                    It is very uncommon to get good feedback from users when giving them a new
+                                    system. But in this case, we got it. They just loved it!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Natalie-Orbach-Pango-e1594223184768-150x150.jpg'
+                                         alt=''>
+                                </div>
+                                <div class="name">Natalie Orbach</div>
+                                <div class="role">Product Manager</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/%d7%a4%d7%a0%d7%92%d7%95_no_bg.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>The UXPERT team has a unique combination of skills and personality.</p>
+                                <p>
+                                    It was great working together on various projects. Always quick and responsive,
+                                    with high quality results and unique solutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="table">
+                            <div class="left">
+                                <div class="avatar">
+                                    <img src='/expert/assets/uploads/2020/07/Shirly-Shoham-Klein-FIBI-e1594445169313-150x150.png'
+                                         alt=''>
+                                </div>
+                                <div class="name">Shirli Shoham-Klein</div>
+                                <div class="role">Head of Digital & Innovation</div>
+                                <div class="logo">
+                                    <img src='/expert/assets/uploads/2020/08/%d7%94%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99.png'
+                                         class='preloader-el' alt=''>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>
+                                    UXPERT is our faithful partner to an extensive transformation of our digital
+                                    assets.
+                                </p>
+                                <p>
+                                    True professionals, with holistic and business driven thinking, while keeping the
+                                    perfect user experience in mind.<br /> Always cooperative and helpful, and
+                                    winning my trust every day!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

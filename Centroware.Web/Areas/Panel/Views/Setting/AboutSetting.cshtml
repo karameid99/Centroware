@@ -1,0 +1,79 @@
+﻿@model Centroware.Model.ViewModels.Settings.AboutSettingVm
+@{
+    ViewData["Title"] = "About Settings";
+}
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">About Settings</h3>
+    </div>
+    <div class="card-body">
+        @if (TempData["Meesage"] != null)
+        {
+            <div class="alert alert-custom alert-light-success fade show mb-5" role="alert">
+                <div class="alert-icon"><i class="flaticon-calendar-3"></i></div>
+                <div class="alert-text">@TempData["Meesage"]</div>
+                <div class="alert-close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                    </button>
+                </div>
+            </div>
+        }
+        <form asp-action="AboutSetting" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OurTeamFirstTitle"></label>
+                        <input asp-for="OurTeamFirstTitle" class="form-control" />
+                        <span asp-validation-for="OurTeamFirstTitle" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OurTeamSoccondTitle"></label>
+                        <input asp-for="OurTeamSoccondTitle" class="form-control" />
+                        <span asp-validation-for="OurTeamSoccondTitle" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="OurTeamDescription"></label>
+                        <textarea rows="5" asp-for="OurTeamDescription" class="form-control"></textarea>
+                        <span asp-validation-for="OurTeamDescription" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="WeDoTitle"></label>
+                        <input asp-for="WeDoTitle" class="form-control" />
+                        <span asp-validation-for="WeDoTitle" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="WeDoDescription"></label>
+                        <textarea asp-for="WeDoDescription" class="form-control"></textarea>
+                        <span asp-validation-for="WeDoDescription" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!--end::Form-->
+</div>
+
+@section Scripts{
+    <script>
+        PageLoadActions();
+    </script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

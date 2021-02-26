@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="82px" viewBox="0 0 43 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 15</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="main-video" transform="translate(-1101.000000, -529.000000)" fill="#FFFFFF">
+            <g id="Group-15" transform="translate(1101.000000, 529.000000)">
+                <rect id="Rectangle" x="0" y="0" width="16" height="57"></rect>
+                <rect id="Rectangle-Copy" x="24" y="0" width="16" height="57"></rect>
+                <text id="Pause" font-family="BebasNeue-Regular, Bebas Neue" font-size="18" font-weight="normal" letter-spacing="1.8">
+                    <tspan x="0.017" y="77">Pause</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

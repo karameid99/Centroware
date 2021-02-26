@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 16</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="main-video" transform="translate(-77.000000, -75.000000)">
+            <g id="Group-16" transform="translate(77.000000, 75.000000)">
+                <circle id="Oval" fill="#1E90FF" cx="17.5" cy="17.5" r="17.5"></circle>
+                <g id="icons/close" transform="translate(6.000000, 6.000000)" stroke="#000000" stroke-linecap="round" stroke-width="1.5">
+                    <g id="Group" transform="translate(11.500000, 11.828571) rotate(45.000000) translate(-11.500000, -11.828571) translate(3.285714, 11.171429)">
+                        <line x1="0.283251232" y1="0.486611" x2="16.1453202" y2="0.328571429" id="Line-Copy"></line>
+                    </g>
+                    <g id="Group" transform="translate(11.500000, 11.828571) scale(1, -1) rotate(45.000000) translate(-11.500000, -11.828571) translate(3.285714, 11.171429)">
+                        <line x1="0.283251232" y1="0.486611" x2="16.1453202" y2="0.328571429" id="Line-Copy"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

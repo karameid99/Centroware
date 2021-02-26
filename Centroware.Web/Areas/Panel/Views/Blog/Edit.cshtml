@@ -1,0 +1,62 @@
+﻿@model Centroware.Model.DTOs.Teams.TeamCreateDto
+@{
+    Layout = null;
+}
+<form asp-action="Edit" method="post" class="ajaxForm" tname="#kt_datatable">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Specialization"></label>
+                <input asp-for="Specialization" class="form-control" />
+                <span asp-validation-for="Specialization" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="StaticImageFile"></label>
+                <div class="custom-file">
+                    <input asp-for="StaticImageFile" type="file" class="custom-file-input" id="StaticImageFile">
+                    <label class="custom-file-label" for="StaticImageFile">Choose file</label>
+                </div>
+                <span asp-validation-for="StaticImageFile" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="MovedImageFile"></label>
+                <div class="custom-file">
+                    <input asp-for="MovedImageFile" type="file" class="custom-file-input" id="MovedImageFile">
+                    <label class="custom-file-label" for="MovedImageFile">Choose file</label>
+                </div>
+                <span asp-validation-for="MovedImageFile" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <textarea rows="5" asp-for="Description" class="form-control">
+        </textarea>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+        <button type="button" data-dismiss="modal" class="btn btn-light-primary font-weight-bold">Cancel</button>
+    </div>
+</form>
+
+<script>
+    PageLoadActions();
+</script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
