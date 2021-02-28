@@ -34,7 +34,7 @@ namespace Centroware.Repository.Repositories.Generic
         }
 
         public virtual IQueryable<TEntity> Filter
-            (Expression<Func<TEntity,bool>> filter,
+            (Expression<Func<TEntity, bool>> filter,
             int skip = 0,
             int take = int.MaxValue,
             Func<IQueryable<TEntity>,
@@ -186,7 +186,7 @@ namespace Centroware.Repository.Repositories.Generic
         {
             try
             {
-                return await _DbContext.Set<TEntity>().SingleOrDefaultAsync(expression);
+                return await _DbContext.Set<TEntity>().AsNoTracking().SingleOrDefaultAsync(expression);
             }
             catch (Exception ex)
             {
@@ -277,6 +277,21 @@ namespace Centroware.Repository.Repositories.Generic
             _DbContext.Dispose();
         }
 
+        public virtual async Task<int> GetCountAsync(Expression<Func<TEntity, bool>> expression)
+        {
+            try
+            {
+                if (expression != null)
+                {
+                    return await _DbContext.Set<TEntity>().CountAsync(expression);
+                }
+                return await _DbContext.Set<TEntity>().CountAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Couldn't retrieve entities: {ex.Message}");
+            }
+        }
     }
 
 }

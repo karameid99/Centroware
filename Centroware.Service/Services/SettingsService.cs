@@ -52,7 +52,7 @@ namespace Centroware.Service.Services
 
         public async Task<MainSettingVm> GetMainSetting()
         {
-            var mainSettings = await _mainRepository.FindFirst(null);
+            var mainSettings = await _mainRepository.FindFirst(x => x.Id > 0);
             if (mainSettings == null)
             {
                 mainSettings = new MainSetting();

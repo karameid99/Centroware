@@ -41,6 +41,12 @@ namespace Centroware.Repository.Interfaces.Generic
         int GetCount(Expression<Func<TEntity, bool>> expression);
 
         /// <summary>
+        /// Get Count for all entities on DB
+        /// </summary>
+        /// <returns>Count of entities</returns>
+        Task<int> GetCountAsync(Expression<Func<TEntity, bool>> expression);
+
+        /// <summary>
         /// Find entities with specific conditions
         /// </summary>
         /// <param name="expression">condition to be find with</param>

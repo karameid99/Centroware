@@ -1,8 +1,9 @@
-﻿@model Centroware.Model.DTOs.Teams.TeamCreateDto
+﻿@model Centroware.Model.DTOs.Teams.TeamUpdateDto
 @{
     Layout = null;
 }
 <form asp-action="Edit" method="post" class="ajaxForm" tname="#kt_datatable">
+    <input asp-for="Id" type="hidden" />
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">

@@ -1,4 +1,5 @@
 ﻿using Centroware.Model.Entities.Identity;
+using Centroware.Service.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,13 +11,16 @@ namespace Centroware.Web.Areas.Panel.Controllers.Dashboard
 {
     public class DashboardController : BaseController
     {
-        public DashboardController(UserManager<CentrowareUser> userManager) : base(userManager)
+        private readonly IDashboardService _dashboardService;
+        public DashboardController(IDashboardService dashboardService, UserManager<CentrowareUser> userManager) : base(userManager)
         {
+            _dashboardService = dashboardService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var result = await _dashboardService.GetDashboard();
+            return View(result);
         }
     }
 }

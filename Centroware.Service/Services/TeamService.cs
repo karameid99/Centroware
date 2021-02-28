@@ -107,7 +107,7 @@ namespace Centroware.Service.Services
                     await _fileService.SaveFile(input.StaticImageFile, "Images") : oldTeam.StaticImage;
                 team.MovedImage = input.StaticImageFile != null ?
                     await _fileService.SaveFile(input.MovedImageFile, "Images") : oldTeam.StaticImage;
-                await _teamRepository.AddAsync(team);
+                await _teamRepository.UpdateAsync(team);
                 return true;
             }
             return false;

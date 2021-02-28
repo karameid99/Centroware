@@ -1,0 +1,339 @@
+﻿@model Centroware.Model.DTOs.Blogs.BlogCreateDto
+@{
+}
+<style>
+    .tags-container tags {
+        min-height: 35px;
+    }
+
+    .tagify {
+        padding-bottom: 3px;
+    }
+</style>
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">Create Work</h3>
+    </div>
+    <!--begin::Form-->
+    <div class="card-body">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Title"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="BlogCategoryId"></label>
+                        <select asp-for="BlogCategoryId" id="BlogCategorySelect" class="form-control"></select>
+                        <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-9 col-sm-12">
+                    <label asp-for="stringTags"></label>
+                    <div style="min-height:2rem" class="form-group tags-container">
+                        <input id="kt_tagify_1" class="tagify" asp-for="stringTags" name="tags" placeholder="type..." />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ImageFile"></label>
+                        <div class="custom-file">
+                            <input asp-for="ImageFile" type="file" class="custom-file-input" id="StaticImageFile">
+                            <label class="custom-file-label" for="StaticImageFile">Choose file</label>
+                        </div>
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-custom" id="kt_card_3">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">Paragraphs to describe the project</h3>
+                            </div>
+                            <div class="card-toolbar">
+                                <a href="#" class="btn btn-icon btn-circle btn-sm btn-light-primary mr-1" data-card-tool="toggle">
+                                    <i class="ki ki-arrow-down icon-nm"></i>
+                                </a>
+                                <a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-toggle="modal" data-target="#exampleModalScrollable">
+                                    <i class="ki ki-plus icon-nm"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card card-custom overlay">
+                                        <div class="card-body p-0">
+                                            <div class="overlay-wrapper">
+                                                <img src="/Images/1d89e75448d74f639c519e2ee6de17c3.jpg" alt="" class="w-100 rounded" />
+                                            </div>
+                                            <div class="overlay-layer m-5 rounded align-items-end justify-content-start">
+                                                <div class="d-flex flex-column align-items-start mb-5 ml-5">
+                                                    <a href="#" class="font-size-h4 font-weight-bolder text-white text-hover-primary">Deal of the Day</a>
+                                                </div>
+                                            </div>
+                                            <div class="overlay-layer align-items-start justify-content-end pt-5 pr-5">
+                                                <a href="#" class="btn btn-clean btn-icon mr-2"><i class="flaticon2-notification icon-lg text-primary"></i></a>
+                                                <a href="#" class="btn btn-clean btn-icon"><i class="flaticon2-plus icon-lg text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-custom overlay">
+                                        <div class="card-body p-0">
+                                            <div class="overlay-wrapper">
+                                                <img src="/Images/1d89e75448d74f639c519e2ee6de17c3.jpg" alt="" class="w-100 rounded" />
+                                            </div>
+                                            <div class="overlay-layer m-5 rounded align-items-end justify-content-start">
+                                                <div class="d-flex flex-column align-items-start mb-5 ml-5">
+                                                    <a href="#" class="font-size-h4 font-weight-bolder text-white text-hover-primary">Deal of the Day</a>
+                                                </div>
+                                            </div>
+                                            <div class="overlay-layer align-items-start justify-content-end pt-5 pr-5">
+                                                <a href="#" class="btn btn-clean btn-icon mr-2"><i class="flaticon2-notification icon-lg text-primary"></i></a>
+                                                <a href="#" class="btn btn-clean btn-icon"><i class="flaticon2-plus icon-lg text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-custom overlay">
+                                        <div class="card-body p-0">
+                                            <div class="overlay-wrapper">
+                                                <img src="/Images/1d89e75448d74f639c519e2ee6de17c3.jpg" alt="" class="w-100 rounded" />
+                                            </div>
+                                            <div class="overlay-layer m-5 rounded align-items-end justify-content-start">
+                                                <div class="d-flex flex-column align-items-start mb-5 ml-5">
+                                                    <a href="#" class="font-size-h4 font-weight-bolder text-white text-hover-primary">Deal of the Day</a>
+                                                </div>
+                                            </div>
+                                            <div class="overlay-layer align-items-start justify-content-end pt-5 pr-5">
+                                                <a href="#" class="btn btn-clean btn-icon mr-2"><i class="flaticon2-notification icon-lg text-primary"></i></a>
+                                                <a href="#" class="btn btn-clean btn-icon"><i class="flaticon2-plus icon-lg text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-custom overlay">
+                                        <div class="card-body p-0">
+                                            <div class="overlay-wrapper">
+                                                <img src="/Images/1d89e75448d74f639c519e2ee6de17c3.jpg" alt="" class="w-100 rounded" />
+                                            </div>
+                                            <div class="overlay-layer m-5 rounded align-items-end justify-content-start">
+                                                <div class="d-flex flex-column align-items-start mb-5 ml-5">
+                                                    <a href="#" class="font-size-h4 font-weight-bolder text-white text-hover-primary">Deal of the Day</a>
+                                                </div>
+                                            </div>
+                                            <div class="overlay-layer align-items-start justify-content-end pt-5 pr-5">
+                                                <a href="#" class="btn btn-clean btn-icon mr-2"><i class="flaticon2-notification icon-lg text-primary"></i></a>
+                                                <a href="#" class="btn btn-clean btn-icon"><i class="flaticon2-plus icon-lg text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+                <button type="button" data-dismiss="modal" class="btn btn-light-primary font-weight-bold">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <!--end::Form-->
+</div>
+
+<!-- Modal-->
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" style="height: 300px;">
+                <form id="ParagraphForm" class="form">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Custom Select</label>
+                            <input type="text" name="name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>File Browser</label>
+                            <div class="custom-file">
+                                <input name="image" type="file" class="custom-file-input" id="customFile" />
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Custom Select</label>
+                            <textarea name="text" rows="5" type="text" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                <button type="button" id="savebtn" class="btn btn-primary font-weight-bold">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        PageLoadActions();
+    </script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+        var data = [];
+        $("#savebtn").click(function () {
+            var formlData = $('#ParagraphForm').serialize();
+            data.push(formlData);
+            console.log(data);
+        });
+    </script>
+    <script>
+        // This card is lazy initialized using data-card="true" attribute. You can access to the card object as shown below and override its behavior
+        var card = new KTCard('kt_card_3');
+        // Toggle event handlers
+        card.on('beforeCollapse', function (card) {
+            setTimeout(function () {
+                toastr.info('Before collapse event fired!');
+            }, 100);
+        });
+
+        card.on('afterCollapse', function (card) {
+            setTimeout(function () {
+                toastr.warning('Before collapse event fired!');
+            }, 2000);
+        });
+
+        card.on('beforeExpand', function (card) {
+            setTimeout(function () {
+                toastr.info('Before expand event fired!');
+            }, 100);
+        });
+
+        card.on('afterExpand', function (card) {
+            setTimeout(function () {
+                toastr.warning('After expand event fired!');
+            }, 2000);
+        });
+        // Reload event handlers
+        card.on('reload', function (card) {
+            toastr.info('Leload event fired!');
+
+            KTApp.block(card.getSelf(), {
+                overlayColor: '#ffffff',
+                type: 'loader',
+                state: 'primary',
+                opacity: 0.3,
+                size: 'lg'
+            });
+
+            // update the content here
+
+            setTimeout(function () {
+                KTApp.unblock(card.getSelf());
+            }, 2000);
+        });
+    </script>
+
+    <script>
+        // Class definition
+        var KTTinymce = function () {
+            // Private functions
+            var demos = function () {
+                tinymce.init({
+                    selector: '#kt-tinymce-1',
+                    toolbar: false,
+                    statusbar: false
+                });
+            }
+
+            return {
+                // public functions
+                init: function () {
+                    demos();
+                }
+            };
+        }();
+
+        // Initialization
+        jQuery(document).ready(function () {
+            KTTinymce.init();
+        });</script>
+    <script>
+        var inputElm = document.querySelector('input[name=tags]');
+        // initialize Tagify on the above input node reference
+        var tagify = new Tagify(inputElm);
+
+        // Chainable event listeners
+        tagify.on('add', onAddTag)
+            .on('remove', onRemoveTag)
+            .on('input', onInput)
+            .on('edit', onTagEdit)
+            .on('invalid', onInvalidTag)
+            .on('click', onTagClick)
+            .on('focus', onTagifyFocusBlur)
+            .on('blur', onTagifyFocusBlur)
+
+        var mockAjax = (function mockAjax() {
+            var timeout;
+            return function (duration) {
+                clearTimeout(timeout); // abort last request
+                return new Promise(function (resolve, reject) {
+                    timeout = setTimeout(resolve, duration || 700, whitelist)
+                })
+            }
+        })()
+
+        // tag added callback
+        function onAddTag(e) {
+            console.log("onAddTag: ", e.detail);
+            console.log("original input value: ", inputElm.value)
+            tagify.off('add', onAddTag) // exmaple of removing a custom Tagify event
+        }
+
+        // tag remvoed callback
+        function onRemoveTag(e) {
+            console.log("onRemoveTag:", e.detail, "tagify instance value:", tagify.value)
+        }
+
+        function onTagEdit(e) {
+            console.log("onTagEdit: ", e.detail);
+        }
+
+        // invalid tag added callback
+        function onInvalidTag(e) {
+            console.log("onInvalidTag: ", e.detail);
+        }
+
+        // invalid tag added callback
+        function onTagClick(e) {
+            console.log(e.detail);
+            console.log("onTagClick: ", e.detail);
+        }
+
+        function onTagifyFocusBlur(e) {
+            console.log(e.type, "event fired")
+        }
+    </script>
+}

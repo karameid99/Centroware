@@ -1,5 +1,83 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Centroware.Model.ViewModels.Settings.MainSettingVm
 @{
+    ViewData["Title"] = "Home Settings";
+}
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">Home Settings</h3>
+    </div>
+    <div class="card-body">
+        @if (TempData["Meesage"] != null)
+        {
+            <div class="alert alert-custom alert-light-success fade show mb-5" role="alert">
+                <div class="alert-icon"><i class="flaticon-calendar-3"></i></div>
+                <div class="alert-text">@TempData["Meesage"]</div>
+                <div class="alert-close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                    </button>
+                </div>
+            </div>
+        }
+        <form asp-action="HomeSetting" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Image"></label>
+                        <div class="custom-file">
+                            <input asp-for="Image" type="file" class="custom-file-input" id="Image">
+                            <label class="custom-file-label" for="Image">Choose file</label>
+                        </div>
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="FacebookUrl" class="col-form-label text-right col-lg-3 col-sm-12"></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="input-group" id="kt_daterangepicker_3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="la la-facebook"></i>
+                                    </span>
+                                </div>
+                                <input asp-for="FacebookUrl" type="text" class="form-control" placeholder="Facebook Url">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="FacebookUrl" class="col-form-label text-right col-lg-3 col-sm-12"></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="input-group" id="kt_daterangepicker_3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="la la-facebook"></i>
+                                    </span>
+                                </div>
+                                <input asp-for="FacebookUrl" type="text" class="form-control" placeholder="Facebook Url">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!--end::Form-->
+</div>
+
+@section Scripts{
+    <script>
+        PageLoadActions();
+    </script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 }

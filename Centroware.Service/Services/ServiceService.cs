@@ -1,38 +1,37 @@
 ﻿using AutoMapper;
 using Centroware.Model.DTOs;
 using Centroware.Model.DTOs.Helpers;
-using Centroware.Model.DTOs.Blogs;
-using Centroware.Model.Entities.Blogs;
+using Centroware.Model.DTOs.Services;
+using Centroware.Model.ViewModels.Services;
 using Centroware.Repository.Interfaces.Generic;
 using Centroware.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Centroware.Model.ViewModels.Blogs;
 
 namespace Centroware.Service.Services
 {
-    public class BlogService : IBlogService
+   public class ServiceService : IServiceService
     {
-        private readonly IBaseRepository<Blog> _BlogRepository;
+        private readonly IBaseRepository<Centroware.Model.Entities.Services.Service> _serviceRepository;
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
 
-        public BlogService(IBaseRepository<Blog> BlogRepository, IMapper mapper, IFileService fileService)
+        public ServiceService(IBaseRepository<Centroware.Model.Entities.Services.Service> serviceRepository, IMapper mapper, IFileService fileService)
         {
-            _BlogRepository = BlogRepository;
+            _serviceRepository = serviceRepository;
             _mapper = mapper;
             _fileService = fileService;
         }
 
-        public async Task<bool> AddBlog(BlogCreateDto input)
+        public async Task<bool> AddService(ServiceCreateDto input)
         {
             if (input != null)
             {
-                var Blog = _mapper.Map<BlogCreateDto, Blog>(input);
-                Blog.ImagePath = await _fileService.SaveFile(input.ImageFile, "Images");
-                await _BlogRepository.AddAsync(Blog);
+                var service = _mapper.Map<ServiceCreateDto, Centroware.Model.Entities.Services.Service>(input);
+                service.Image = await _fileService.SaveFile(input.ImageFile, "Images");
+                await _serviceRepository.AddAsync(service);
                 return true;
             }
             return false;
@@ -42,19 +41,19 @@ namespace Centroware.Service.Services
         {
             if (id > 0)
             {
-                var Blog = await _BlogRepository.Get(id);
-                await _BlogRepository.DeleteAsync(Blog);
+                var service = await _serviceRepository.Get(id);
+                await _serviceRepository.DeleteAsync(service);
                 return true;
             }
             return false;
         }
 
-        public async Task<BlogUpdateDto> Get(int id)
+        public async Task<ServiceUpdateDto> Get(int id)
         {
-            var data = await _BlogRepository.Get(id);
+            var data = await _serviceRepository.Get(id);
             if (data != null)
             {
-                var dataVm = _mapper.Map<BlogUpdateDto>(data);
+                var dataVm = _mapper.Map<ServiceUpdateDto>(data);
                 return dataVm;
             }
             return null;
@@ -63,7 +62,7 @@ namespace Centroware.Service.Services
         public async Task<ResponseDto> GetAll(Pagination pagination, Query query)
         {
             var skipValue = (pagination.Page - 1) * pagination.PerPage;
-            var data = _BlogRepository.Filter(filter: x =>
+            var data = _serviceRepository.Filter(filter: x =>
            string.IsNullOrEmpty(query.GeneralSearch) || x.Title.Contains(query.GeneralSearch),
             orderBy: x => x.OrderByDescending(x => x.Id));
             var dataCount = await data.CountAsync();
@@ -73,12 +72,12 @@ namespace Centroware.Service.Services
                 pagination.Page = 1;
             }
             var pages = Convert.ToInt32(Math.Ceiling(dataCount / (float)pagination.PerPage));
-            var dataList = await data.Skip(skipValue).Take(pagination.PerPage).Select(x => new BlogVm
+            var dataList = await data.Skip(skipValue).Take(pagination.PerPage).Select(x => new ServiceVm
             {
                 Id = x.Id,
+                Image = x.Image,
                 Title = x.Title,
-                ImagePath = x.ImagePath,
-                Category = x.BlogCategory.Name,
+                Description = x.Description,
             }).ToListAsync();
             var response = new ResponseDto
             {
@@ -90,21 +89,19 @@ namespace Centroware.Service.Services
                     pages = pages,
                 },
                 data = dataList
-
             };
             return response;
         }
 
-        public async Task<bool> UpdateBlog(BlogUpdateDto input)
+        public async Task<bool> UpdateService(ServiceUpdateDto input)
         {
             if (input != null)
             {
-                var Blog = _mapper.Map<BlogUpdateDto, Blog>(input);
-                var oldBlog = await _BlogRepository.Get(input.Id);
-                Blog.ImagePath = input.ImageFile != null ?
-                    await _fileService.SaveFile(input.ImageFile, "Images") : oldBlog.ImagePath;
-
-                await _BlogRepository.UpdateAsync(Blog);
+                var service = _mapper.Map<ServiceUpdateDto, Centroware.Model.Entities.Services.Service>(input);
+                var oldService = await _serviceRepository.FindSingle(x=> x.Id == input.Id);
+                service.Image = input.ImageFile != null ?
+                    await _fileService.SaveFile(input.ImageFile, "Images") : oldService.Image;
+                await _serviceRepository.UpdateAsync(service);
                 return true;
             }
             return false;
