@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Centroware.Model.DTOs.Blogs;
+using Centroware.Model.DTOs.Jobs;
 using Centroware.Model.DTOs.Services;
 using Centroware.Model.DTOs.Teams;
 using Centroware.Model.Entities.Blogs;
+using Centroware.Model.Entities.Jobs;
 using Centroware.Model.Entities.Settings;
 using Centroware.Model.Entities.Teams;
 using Centroware.Model.ViewModels.Settings;
@@ -32,6 +34,9 @@ namespace Centroware.Web
 
             CreateMap<ServiceCreateDto, Centroware.Model.Entities.Services.Service>();
             CreateMap<ServiceUpdateDto, Centroware.Model.Entities.Services.Service>().ReverseMap();
+
+            CreateMap<JobCreateDto, Job>();
+            CreateMap<JobUpdateDto, Job>().ReverseMap();
         }
     }
 }

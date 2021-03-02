@@ -17,12 +17,14 @@ namespace Centroware.Service.Services
         private readonly IBaseRepository<HomeSetting> _homeRepository;
         private readonly IBaseRepository<MainSetting> _mainRepository;
         private readonly IMapper _mapper;
+        private readonly IFileService _fileService;
 
-        public SettingsService(IBaseRepository<AboutSetting> aboutRepository, IBaseRepository<HomeSetting> homeRepository, IBaseRepository<MainSetting> mainRepository, IMapper mapper)
+        public SettingsService(IFileService fileService, IBaseRepository<AboutSetting> aboutRepository, IBaseRepository<HomeSetting> homeRepository, IBaseRepository<MainSetting> mainRepository, IMapper mapper)
         {
             _aboutRepository = aboutRepository;
             _homeRepository = homeRepository;
             _mainRepository = mainRepository;
+            _fileService = fileService;
             _mapper = mapper;
         }
 
@@ -64,7 +66,9 @@ namespace Centroware.Service.Services
 
         public async Task<AboutSettingVm> UpdateAboutSetting(AboutSettingVm input)
         {
+            var oldAboutSetting = await _aboutRepository.FindFirst(x => x.Id == input.Id);
             var aboutSetting = _mapper.Map<AboutSettingVm, AboutSetting>(input);
+            aboutSetting.JoinUsImage = input.JoinUsImageFile != null ? await _fileService.SaveFile(input.JoinUsImageFile, "Images") : oldAboutSetting.JoinUsImage;
             await _aboutRepository.UpdateAsync(aboutSetting);
             return input;
         }
@@ -73,8 +77,8 @@ namespace Centroware.Service.Services
         {
             var oldHomeSetting = await _homeRepository.FindFirst(x => x.Id == input.Id);
             var homeSettings = _mapper.Map<HomeSettingVm, HomeSetting>(input);
-            homeSettings.SliderImage = input.Image != null ? "" : oldHomeSetting.SliderImage;
-            homeSettings.OurCustomersImage = input.CustomersImage != null ? "" : oldHomeSetting.OurCustomersImage;
+            homeSettings.SliderImage = input.Image != null ? await _fileService.SaveFile(input.Image, "Images") : oldHomeSetting.SliderImage;
+            homeSettings.OurCustomersImage = input.CustomersImage != null ? await _fileService.SaveFile(input.CustomersImage, "Images") : oldHomeSetting.OurCustomersImage;
             await _homeRepository.UpdateAsync(homeSettings);
             return input;
         }
@@ -83,7 +87,7 @@ namespace Centroware.Service.Services
         {
             var oldMainSetting = await _mainRepository.FindFirst(x => x.Id == input.Id);
             var mainSetting = _mapper.Map<MainSettingVm, MainSetting>(input);
-            mainSetting.Logo = input.Image != null ? "" : oldMainSetting.Logo;
+            mainSetting.Logo = input.Image != null ? await _fileService.SaveFile(input.Image, "Images") : oldMainSetting.Logo;
             await _mainRepository.UpdateAsync(mainSetting);
             return input;
         }

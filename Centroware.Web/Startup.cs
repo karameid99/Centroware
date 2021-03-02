@@ -45,6 +45,8 @@ namespace Centroware.Web
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IDashboardService, DashboardService>();
             services.AddTransient<IServiceService, ServiceService>();
+            services.AddTransient<IJobService, JobService>();
+            services.AddTransient<IContactService, ContactService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

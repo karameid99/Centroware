@@ -1,6 +1,7 @@
 ﻿using Centroware.Model.Entities.Blogs;
 using Centroware.Model.Entities.Contact;
 using Centroware.Model.Entities.Identity;
+using Centroware.Model.Entities.Jobs;
 using Centroware.Model.Entities.Sayings;
 using Centroware.Model.Entities.Services;
 using Centroware.Model.Entities.Settings;
@@ -49,5 +50,9 @@ namespace Centroware.Data.Data
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogCategory> BlogCategories { get; set; }
         #endregion
+        #region Jobs
+        public DbSet<Job> Jobs { get; set; }
+        #endregion
+
     }
 }

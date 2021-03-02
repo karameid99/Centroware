@@ -19,53 +19,78 @@
                 </div>
             </div>
         }
-        <form asp-action="AboutSetting" method="post" enctype="multipart/form-data">
-            <input type="hidden" asp-for="Id" />
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="OurTeamFirstTitle"></label>
-                        <input asp-for="OurTeamFirstTitle" class="form-control" />
-                        <span asp-validation-for="OurTeamFirstTitle" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="OurTeamSoccondTitle"></label>
-                        <input asp-for="OurTeamSoccondTitle" class="form-control" />
-                        <span asp-validation-for="OurTeamSoccondTitle" class="text-danger"></span>
-                    </div>
+    <form asp-action="AboutSetting" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="OurTeamFirstTitle"></label>
+                    <input asp-for="OurTeamFirstTitle" class="form-control" />
+                    <span asp-validation-for="OurTeamFirstTitle" class="text-danger"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label asp-for="OurTeamDescription"></label>
-                        <textarea rows="5" asp-for="OurTeamDescription" class="form-control"></textarea>
-                        <span asp-validation-for="OurTeamDescription" class="text-danger"></span>
-                    </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="OurTeamSoccondTitle"></label>
+                    <input asp-for="OurTeamSoccondTitle" class="form-control" />
+                    <span asp-validation-for="OurTeamSoccondTitle" class="text-danger"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="WeDoTitle"></label>
-                        <input asp-for="WeDoTitle" class="form-control" />
-                        <span asp-validation-for="WeDoTitle" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="WeDoDescription"></label>
-                        <textarea asp-for="WeDoDescription" class="form-control"></textarea>
-                        <span asp-validation-for="WeDoDescription" class="text-danger"></span>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="OurTeamDescription"></label>
+                    <textarea rows="5" asp-for="OurTeamDescription" class="form-control"></textarea>
+                    <span asp-validation-for="OurTeamDescription" class="text-danger"></span>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="WeDoTitle"></label>
+                    <input asp-for="WeDoTitle" class="form-control" />
+                    <span asp-validation-for="WeDoTitle" class="text-danger"></span>
+                </div>
             </div>
-        </form>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="WeDoDescription"></label>
+                    <textarea asp-for="WeDoDescription" class="form-control"></textarea>
+                    <span asp-validation-for="WeDoDescription" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="JoinUsTitle"></label>
+                    <input asp-for="JoinUsTitle" class="form-control" />
+                    <span asp-validation-for="JoinUsTitle" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="JoinUsSubTitle"></label>
+                    <input asp-for="JoinUsSubTitle" class="form-control" />
+                    <span asp-validation-for="JoinUsSubTitle" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="JoinUsImageFile"></label>
+                    <input type="file" asp-for="JoinUsImageFile" class="form-control" />
+                    <span asp-validation-for="JoinUsImageFile" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+        </div>
+    </form>
     </div>
     <!--end::Form-->
 </div>
