@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,10 @@ namespace Centroware.Model.DTOs.Blogs
         [Display(Name = "Post Image")]
         public IFormFile ImageFile { get; set; }
         [Display(Name = "Tags")]
-        public List<string> stringTags { get; set; }
+        public List<string> StringTags { get; set; }
         public string Description { get; set; }
         [Display(Name = " Blog Category")]
+        [DefaultValue(1)]
         public int BlogCategoryId { get; set; }
     }
 }

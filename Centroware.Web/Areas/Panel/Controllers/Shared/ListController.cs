@@ -19,11 +19,11 @@ namespace Centroware.Web.Areas.Panel.Controllers.Shared
             _blogCategoryService = blogCategoryService;
         }
 
-        //public async Task<IActionResult> GetBlogCategory()
-        //{
-        //    var listData = await _blogCategoryService.List();
-        //    return Json(listData);
-        //}
+        public async Task<IActionResult> GetBlogCategory()
+        {
+            var listData = await _blogCategoryService.List();
+            return Json(listData);
+        }
 
     }
 }

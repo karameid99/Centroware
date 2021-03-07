@@ -19,109 +19,127 @@
                 </div>
             </div>
         }
-    <form asp-action="HomeSetting" method="post" enctype="multipart/form-data">
-        <input type="hidden" asp-for="Id" />
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Image"></label>
-                    <div class="custom-file">
-                        <input asp-for="Image" type="file" class="custom-file-input" id="Image">
-                        <label class="custom-file-label" for="Image">Choose file</label>
+        <form asp-action="HomeSetting" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="MobileImage"></label>
+                        <div class="custom-file">
+                            <input asp-for="MobileImage" type="file" class="custom-file-input" id="Image">
+                            <label class="custom-file-label" for="Image">Choose file</label>
+                        </div>
+                        <span asp-validation-for="MobileImage" class="text-danger"></span>
                     </div>
-                    <span asp-validation-for="Image" class="text-danger"></span>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="AboutFirstTitle"></label>
-                    <input asp-for="AboutFirstTitle" class="form-control" />
-                    <span asp-validation-for="AboutFirstTitle" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="AboutSocondTitle"></label>
-                    <input asp-for="AboutSocondTitle" class="form-control" />
-                    <span asp-validation-for="AboutSocondTitle" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="OurWorkFirstTitle"></label>
-                    <input asp-for="OurWorkFirstTitle" class="form-control" />
-                    <span asp-validation-for="OurWorkFirstTitle" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="OurWorkSocondTitle"></label>
-                    <input asp-for="OurWorkSocondTitle" class="form-control" />
-                    <span asp-validation-for="OurWorkSocondTitle" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="OurCustomersTitle"></label>
-                    <input asp-for="OurCustomersTitle" class="form-control" />
-                    <span asp-validation-for="OurCustomersTitle" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="CustomersImage"></label>
-                    <div class="custom-file">
-                        <input asp-for="CustomersImage" type="file" class="custom-file-input" id="StaticImageFile">
-                        <label class="custom-file-label" for="StaticImageFile">Choose file</label>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Image"></label>
+                        <div class="custom-file">
+                            <input asp-for="Image" type="file" class="custom-file-input" id="Image">
+                            <label class="custom-file-label" for="Image">Choose file</label>
+                        </div>
+                        <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
-                    <span asp-validation-for="CustomersImage" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Video"></label>
+                        <div class="custom-file">
+                            <input asp-for="Video" type="file" class="custom-file-input" id="Image">
+                            <label class="custom-file-label" for="Image">Choose file</label>
+                        </div>
+                        <span asp-validation-for="Video" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="OurFriends"></label>
-                    <input asp-for="OurFriends" class="form-control" />
-                    <span asp-validation-for="OurFriends" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AboutFirstTitle"></label>
+                        <input asp-for="AboutFirstTitle" class="form-control" />
+                        <span asp-validation-for="AboutFirstTitle" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AboutSocondTitle"></label>
+                        <input asp-for="AboutSocondTitle" class="form-control" />
+                        <span asp-validation-for="AboutSocondTitle" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="AwardsTitle"></label>
-                    <input asp-for="AwardsTitle" class="form-control" />
-                    <span asp-validation-for="AwardsTitle" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OurWorkFirstTitle"></label>
+                        <input asp-for="OurWorkFirstTitle" class="form-control" />
+                        <span asp-validation-for="OurWorkFirstTitle" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OurWorkSocondTitle"></label>
+                        <input asp-for="OurWorkSocondTitle" class="form-control" />
+                        <span asp-validation-for="OurWorkSocondTitle" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="OurWorkDescription"></label>
-                    <textarea rows="5" asp-for="OurWorkDescription" class="form-control"></textarea>
-                    <span asp-validation-for="OurWorkDescription" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OurCustomersTitle"></label>
+                        <input asp-for="OurCustomersTitle" class="form-control" />
+                        <span asp-validation-for="OurCustomersTitle" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CustomersImage"></label>
+                        <div class="custom-file">
+                            <input asp-for="CustomersImage" type="file" class="custom-file-input" id="StaticImageFile">
+                            <label class="custom-file-label" for="StaticImageFile">Choose file</label>
+                        </div>
+                        <span asp-validation-for="CustomersImage" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="AboutDescription"></label>
-                    <textarea rows="5" asp-for="AboutDescription" class="form-control"></textarea>
-                    <span asp-validation-for="AboutDescription" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OurFriends"></label>
+                        <input asp-for="OurFriends" class="form-control" />
+                        <span asp-validation-for="OurFriends" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AwardsTitle"></label>
+                        <input asp-for="AwardsTitle" class="form-control" />
+                        <span asp-validation-for="AwardsTitle" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
-        </div>
-    </form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OurWorkDescription"></label>
+                        <textarea rows="5" asp-for="OurWorkDescription" class="form-control"></textarea>
+                        <span asp-validation-for="OurWorkDescription" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AboutDescription"></label>
+                        <textarea rows="5" asp-for="AboutDescription" class="form-control"></textarea>
+                        <span asp-validation-for="AboutDescription" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+            </div>
+        </form>
     </div>
     <!--end::Form-->
 </div>

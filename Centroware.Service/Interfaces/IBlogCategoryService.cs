@@ -1,6 +1,8 @@
 ﻿using Centroware.Model.DTOs;
 using Centroware.Model.DTOs.Blogs;
 using Centroware.Model.DTOs.Helpers;
+using Centroware.Model.ViewModels.Shared;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Centroware.Service.Interfaces
@@ -12,5 +14,6 @@ namespace Centroware.Service.Interfaces
         Task<bool> AddBlogCategory(BlogCategoryCreateDto input);
         Task<bool> UpdateBlogCategory(BlogCategoryUpdateDto input);
         Task<bool> Delete(int id);
+        Task<List<ListVm>> List();
     }
 }

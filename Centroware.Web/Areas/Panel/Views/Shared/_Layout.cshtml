@@ -6,7 +6,7 @@
     {
         Action = ViewContext.RouteData.Values["action"].ToString().ToLower();
         Controller = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
-        currentURL = "/" + Controller + "/" + Action;
+        currentURL =  Controller + "/" + Action;
     }
     catch (Exception e)
     {
@@ -286,7 +286,10 @@
                                     <h5 class="text-dark font-weight-bold my-1 mr-5">Centroware</h5>
                                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                                         <li class="breadcrumb-item text-muted">
-                                            <a href="" class="text-muted">@ViewData["Title"]</a>
+                                            <a href="/Panel/@Controller/Index" class="text-muted">@Controller</a>
+                                        </li>
+                                        <li class="breadcrumb-item text-muted">
+                                            <a href="/panel/@currentURL" class="text-muted">@Action</a>
                                         </li>
                                     </ul>
                                 </div>

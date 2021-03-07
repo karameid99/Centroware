@@ -3,10 +3,13 @@ using Centroware.Model.DTOs.Blogs;
 using Centroware.Model.DTOs.Jobs;
 using Centroware.Model.DTOs.Services;
 using Centroware.Model.DTOs.Teams;
+using Centroware.Model.DTOs.Works;
 using Centroware.Model.Entities.Blogs;
 using Centroware.Model.Entities.Jobs;
 using Centroware.Model.Entities.Settings;
 using Centroware.Model.Entities.Teams;
+using Centroware.Model.Entities.Works;
+using Centroware.Model.ViewModels.HomeVms;
 using Centroware.Model.ViewModels.Settings;
 using System;
 using System.Collections.Generic;
@@ -22,7 +25,7 @@ namespace Centroware.Web
             CreateMap<TeamCreateDto, Team>();
             CreateMap<TeamUpdateDto, Team>().ReverseMap();
 
-            CreateMap<BlogCreateDto, Blog>();
+            CreateMap<BlogCreateDto, Blog>().ForMember(x => x.Tags, x => x.MapFrom(x => String.Join(",", x.StringTags)));
             CreateMap<BlogUpdateDto, Blog>().ReverseMap();
 
             CreateMap<BlogCategoryCreateDto, BlogCategory>();
@@ -37,6 +40,11 @@ namespace Centroware.Web
 
             CreateMap<JobCreateDto, Job>();
             CreateMap<JobUpdateDto, Job>().ReverseMap();
+            CreateMap<CreateArticleDto, Article>().ReverseMap();
+
+            CreateMap<MainSetting, MainSettingsVm>();
+
         }
+
     }
 }

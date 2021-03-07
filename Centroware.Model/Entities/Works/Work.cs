@@ -11,6 +11,7 @@ namespace Centroware.Model.Entities.Works
         public string SubTitle { get; set; }
         public string About { get; set; }
         public string OurPart { get; set; }
+        public string WorkStringId { get; set; }
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }

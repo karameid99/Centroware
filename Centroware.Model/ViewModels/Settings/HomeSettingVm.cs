@@ -7,6 +7,10 @@ namespace Centroware.Model.ViewModels.Settings
         public int Id { get; set; }
         public IFormFile Image { get; set; }
         public IFormFile CustomersImage { get; set; }
+        public IFormFile MobileImage { get; set; }
+        public IFormFile Video { get; set; }
+        public string SliderMobileImage { get; set; }
+        public string SliderVideo { get; set; }
         public string AboutFirstTitle { get; set; }
         public string AboutSocondTitle { get; set; }
         public string AboutDescription { get; set; }
@@ -18,5 +22,7 @@ namespace Centroware.Model.ViewModels.Settings
         public string OurFriends { get; set; }
         public string SayingFirstTitle { get; set; }
         public string SayingSoccondTitle { get; set; }
+        public string SliderImage { get; set; }
+
     }
 }

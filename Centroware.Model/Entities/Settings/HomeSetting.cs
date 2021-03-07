@@ -3,6 +3,8 @@
     public class HomeSetting : BaseEntity
     {
         public string SliderImage { get; set; }
+        public string SliderMobileImage { get; set; }
+        public string SliderVideo { get; set; }
         public string AboutFirstTitle { get; set; }
         public string AboutSocondTitle { get; set; }
         public string AboutDescription { get; set; }

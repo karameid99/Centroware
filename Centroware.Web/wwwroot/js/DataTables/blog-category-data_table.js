@@ -29,12 +29,14 @@ var KTDatatableAutoColumnHideDemo = function () {
             },
             columns: [{
                 field: 'id',
-                title: 'ID'
+                title: '#',
+                width: 100,
+                autoHide: false,
             }, {
                 field: 'name',
                 title: 'Name',
-                width: 'auto',
-                autoHide: false,
+                width: 400,
+                autoHide: 20,
 
             }, {
                 field: 'Actions',
@@ -71,10 +73,7 @@ var KTDatatableAutoColumnHideDemo = function () {
             }],
 
         });
-
-      
         $('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
-        console.log(datatable.getDataSourceQuery());
     };
     return {
         init: function init() {

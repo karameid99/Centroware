@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Centroware.Model.Entities.Blogs;
 using Centroware.Model.DTOs.Blogs;
 using Centroware.Model.ViewModels.Blogs;
+using Centroware.Model.ViewModels.Shared;
+using System.Collections.Generic;
 
 namespace Centroware.Service.Services
 {
@@ -87,6 +89,15 @@ namespace Centroware.Service.Services
 
             };
             return response;
+        }
+
+        public async Task<List<ListVm>> List()
+        {
+            return await _BlogCategoryRepository.Filter(filter: x => x.Id > 0, orderBy: x => x.OrderByDescending(x => x.Id)).Select(x => new ListVm
+            {
+                Id = x.Id,
+                Name = x.Name,
+            }).ToListAsync();
         }
 
         public async Task<bool> UpdateBlogCategory(BlogCategoryUpdateDto input)

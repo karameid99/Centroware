@@ -362,6 +362,12 @@ namespace Centroware.Data.Data.Migrations
                     b.Property<string>("SliderImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SliderMobileImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SliderVideo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("HomeSettings");
@@ -470,6 +476,9 @@ namespace Centroware.Data.Data.Migrations
                     b.Property<int?>("WorkId")
                         .HasColumnType("int");
 
+                    b.Property<string>("WorkStringId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("WorkId");
@@ -527,6 +536,9 @@ namespace Centroware.Data.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WorkStringId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -693,9 +705,11 @@ namespace Centroware.Data.Data.Migrations
 
             modelBuilder.Entity("Centroware.Model.Entities.Works.Article", b =>
                 {
-                    b.HasOne("Centroware.Model.Entities.Works.Work", null)
+                    b.HasOne("Centroware.Model.Entities.Works.Work", "Work")
                         .WithMany("Articles")
                         .HasForeignKey("WorkId");
+
+                    b.Navigation("Work");
                 });
 
             modelBuilder.Entity("Centroware.Model.Entities.Works.Work", b =>

@@ -79,6 +79,8 @@ namespace Centroware.Service.Services
             var homeSettings = _mapper.Map<HomeSettingVm, HomeSetting>(input);
             homeSettings.SliderImage = input.Image != null ? await _fileService.SaveFile(input.Image, "Images") : oldHomeSetting.SliderImage;
             homeSettings.OurCustomersImage = input.CustomersImage != null ? await _fileService.SaveFile(input.CustomersImage, "Images") : oldHomeSetting.OurCustomersImage;
+            
+            homeSettings.SliderVideo = input.Video != null ? await _fileService.SaveFile(input.Video, "Images") : oldHomeSetting.SliderVideo;
             await _homeRepository.UpdateAsync(homeSettings);
             return input;
         }

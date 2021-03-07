@@ -68,8 +68,6 @@ $("#Confirm .btn-danger").click(function () {
         url: url,
         success: function (jsonObject) {
             var json = JSON.parse(jsonObject);
-            console.log(json);
-            console.log(json.msg);
             if (json.status == 1) {
                 if (tname != null) {
                     $('#kt_datatable').KTDatatable().reload();
@@ -109,6 +107,8 @@ toastr.options = {
 };
 
 function ShowMessage(msg) {
+
+    console.log(msg);
     var cls = "info";
     if (msg.indexOf("s:") == 0) { cls = "success"; msg = msg.substring(2); }
     if (msg.indexOf("w:") == 0) { cls = "warning"; msg = msg.substring(2); }

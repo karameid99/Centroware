@@ -40,7 +40,9 @@ namespace Centroware.Web.Areas.Panel.Controllers.Blog
             if (ModelState.IsValid)
             {
                 var isCreated = await _blogService.AddBlog(input);
-                if (isCreated) return Content(Constant.AddSuccessResult());
+                if (isCreated)
+                    TempData["result"] = Constant.AddSuccessfully;
+                return RedirectToAction("Index");
             }
             return View(input);
         }

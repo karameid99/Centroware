@@ -1,27 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Centroware.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
 
 namespace Centroware.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public readonly IHomeService _homeService;
+        public HomeController(IHomeService homeService)
         {
-            _logger = logger;
+            _homeService = homeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var response = await _homeService.GetHomePage();
+            return View(response);
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> GetServices()
         {
-            return View();
+            var response = await _homeService.GetServices();
+            return Json(response);
         }
-
-
     }
 }

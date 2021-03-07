@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Centroware.Model.ViewModels.HomeVms.HomeVm
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <div class="trailer">
@@ -11,7 +12,7 @@
                            background="transparent.html" speed="1" loop autoplay></lottie-player>
         </div> <span id="soundtext">Sound On</span>
     </div><video preload="1" autoplay="" id='video' poster="/expert/assets/uploads/2020/08/Orange-BG.jpg">
-        <source type="video/mp4" src="/expert/assets/uploads/2020/08/Uxpert-Showreel-WEB.m4v">
+        <source type="video/mp4" src="/Images/@Model.HomeSetting.SliderVideo">
     </video>
 </div>
 <div id="scroll-container" class="container-fluid">
@@ -21,12 +22,12 @@
             <div class="table">
                 <div class="table-cell">
                     <div class='inside'>
-                        <p style="display:none;"><span class="f-letter">OUR</span>EXPERIENCE MATTERS</p>
+                        <p style="display:none;"><span class="f-letter">Karam</span>EXPERIENCE MATTERS</p>
                         <div class="hp-animation hp-animation-desktop hide-in-mobile">
-                            <img src='/expert/assets/uploads/2020/09/static.gif' alt='' />
+                            <img src='/Images/@Model.HomeSetting.SliderImage' alt='' />
                         </div>
                         <div class="hp-animation hp-animation-mobile hide-in-desctop">
-                            <img src='/expert/assets/uploads/2020/09/static-mobile.gif' alt='' />
+                            <img src='/Images/@Model.HomeSetting.SliderImage' alt='' />
                         </div>
                         <div class='play'>
                             <span></span><span></span><span></span>
@@ -38,8 +39,7 @@
         </div>
     </section>
     <section class="hp-section hp-02 hp-01-02"></section>
-    <section class="hp-section hp-03" style="display:none;" data-type="backgrounds" data-speed="10"
-             style="background-image:url()">
+    <section class="hp-section hp-03" style="display:none;background-image:url()" data-type="backgrounds" data-speed="10">
         <div class="table">
             <div class="table-cell"></div>
         </div>
@@ -64,19 +64,16 @@
                 </div>
                 <div class="description">
                     <div class="de-title">
-                        <p><strong>We design</strong><br /> <em>beautiful user experiences</em></p>
+                        <p><strong>@Model.HomeSetting.AboutFirstTitle</strong><br /> <em>@Model.HomeSetting.AboutSocondTitle</em></p>
                     </div>
                     <div class="de-desc">
                         <p>
-                            Our mission is to create a better digital world and make our customers happy.<br /> We
-                            possess a winning combination of creative, technical and people skills that not only
-                            make us fun to work with, but ensure we get the job done, and done well.
+                            @Model.HomeSetting.AboutDescription
                         </p>
-                    </div> <a href='about.html' aria-label="More about us" class="more-in">
+                    </div> <a href='/Home/About' aria-label="More about us" class="more-in">
                         <span class='arrow-a black-arrow'><i></i></span> <span class="more-link">
                             <i>
-                                More about
-                                us
+                                More about us
                             </i>
                         </span>
                     </a>
@@ -104,50 +101,7 @@
                     </div>
                 </div>
                 <div class="items">
-                    <ul>
-                        <li class="sitem item">
-                            <div class="thumb">
-                                <div class="icon">
-                                    <img src='/expert/assets/uploads/2020/08/Research-and-Strategy.svg'
-                                         alt=''>
-                                </div>
-                                <div class="description">
-                                    <p><strong>Research</strong><br /> <strong>&amp; Strategy</strong></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="sitem item">
-                            <div class="thumb">
-                                <div class="icon">
-                                    <img src='/expert/assets/uploads/2020/08/User-Experience-Design.svg'
-                                         alt=''>
-                                </div>
-                                <div class="description">
-                                    <p><strong>UX</strong><br /> <strong>Design</strong></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="sitem item">
-                            <div class="thumb">
-                                <div class="icon">
-                                    <img src='/expert/assets/uploads/2020/08/visual-design.svg' alt=''>
-                                </div>
-                                <div class="description">
-                                    <p><strong>Visual</strong><br /> <strong>Design</strong></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="sitem item">
-                            <div class="thumb">
-                                <div class="icon">
-                                    <img src='/expert/assets/uploads/2020/08/usability-testing.svg'
-                                         alt=''>
-                                </div>
-                                <div class="description">
-                                    <p><strong>Usability</strong><br /> <strong>Testing</strong></p>
-                                </div>
-                            </div>
-                        </li>
+                    <ul id="div_Services">
                     </ul>
                 </div>
                 <div class="line"></div>
@@ -170,14 +124,13 @@
                 </div>
                 <div class="description">
                     <div class="de-title">
-                        <p><strong>We love our work</strong><br /> <em>and it shows</em></p>
+                        <p><strong>@Model.HomeSetting.OurWorkFirstTitle</strong><br /> <em>@Model.HomeSetting.OurWorkSocondTitle</em></p>
                     </div>
                     <div class="de-desc">
                         <p>
-                            With hundreds of projects completed for industry-leading clients, we’ve done almost every
-                            type of project.<br /> Many of which became award winners and made us proud parents.
+                            @Model.HomeSetting.OurWorkDescription
                         </p>
-                    </div> <a href='work.html' aria-label="See them all" class="more-in">
+                    </div> <a href='/Home/Works' aria-label="See them all" class="more-in">
                         <span class='arrow-a black-arrow'><i></i></span> <span class="more-link">
                             <i>
                                 See them
@@ -202,40 +155,6 @@
                                 <div class="text-title">Leumi &#8211; Digital Account</div> <span class="text-category">mobile app</span> <span class="text-slug">
                                     Opening an
                                     account made easy
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item wow animate__fadeInUp">
-                <a href='work/websites/gift-card-order.html'
-                   class="portfolio work" data-cat="work" aria-label="MAX &#8211; Digital Gift Card">
-                    <div class="portfolio-wrapper b-lazy"
-                         data-src="/expert/assets/uploads/2020/09/%d7%aa%d7%9e%d7%95%d7%a0%d7%94-%d7%a8%d7%90%d7%a9%d7%99%d7%aa-1024x540.jpg">
-                        <img src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw = = alt='' />
-                        <div class="label">
-                            <div class="label-text">
-                                <div class="text-title">MAX &#8211; Digital Gift Card</div> <span class="text-category">website</span> <span class="text-slug">
-                                    Giving is
-                                    receiving!
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="item wow animate__fadeInUp">
-                <a href='work/pos/dominos-pos.html' class="portfolio work"
-                   data-cat="work" aria-label="Domino&#8217;s &#8211; Pizza Ordering">
-                    <div class="portfolio-wrapper b-lazy"
-                         data-src="/expert/assets/uploads/2020/06/herogradient-1024x540.jpg">
-                        <img src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw = = alt='' />
-                        <div class="label">
-                            <div class="label-text">
-                                <div class="text-title">Domino&#8217;s &#8211; Pizza Ordering</div> <span class="text-category">point of sale</span> <span class="text-slug">
-                                    Keeping pizza
-                                    deliveries hot!
                                 </span>
                             </div>
                         </div>
@@ -823,3 +742,18 @@
         </div>
     </section>
 </div>
+@section Scripts{
+    <script>
+        $.ajax({
+            url: '/Home/GetServices',
+            success: function (result) {
+                var res = "";
+                $.each(result, function (i, v) {
+                    res = res + '<li class="sitem item"><div class="thumb"><div class="icon"><img src="/Images/' + v.image + '"alt=""></div><div class="description"><p><strong>'+v.title+'</strong></p></div></div></li>';
+                })
+                $("#div_Services").html(res);
+            }
+        });
+    </script>
+
+}

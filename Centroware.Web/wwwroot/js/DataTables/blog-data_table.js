@@ -29,12 +29,21 @@ var KTDatatableAutoColumnHideDemo = function () {
             },
             columns: [{
                 field: 'id',
-                title: 'ID'
+                title: '#',
             }, {
                 field: 'title',
                 title: 'Title',
                 width: 'auto',
                 autoHide: false,
+                textAlign: 'center'
+
+            },
+            {
+                field: 'category',
+                title: 'Category',
+                width: 'auto',
+                autoHide: false,
+                textAlign: 'center'
 
             },
             {
@@ -44,7 +53,7 @@ var KTDatatableAutoColumnHideDemo = function () {
                 width: 250,
                 template: function template(data) {
                     var output = '-';
-                    if (data.staticImage != null) {
+                    if (data.imagePath != null) {
                         output = '<div class=\"d-flex align-items-center\"> <div class=\"symbol symbol-40 symbol-sm flex-shrink-0\"> \t<img class=\"\" src="/Images/' + data.imagePath + '" alt=\"photo\"> </div> </div>';
                     }
                     return output;

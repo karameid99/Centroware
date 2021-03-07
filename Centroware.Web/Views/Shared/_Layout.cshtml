@@ -235,13 +235,12 @@
                    style="background-image: url(expert/assets/media/Group_8.svg)"></a>
             </li>
             <li><i></i></li>
-            <li class="b-tit wow animate__fadeInUp" data-wow-delay="3s">Home</li>
+            <li class="b-tit wow animate__fadeInUp" data-wow-delay="3s">@ViewData["Title"]</li>
         </ul>
         <div class='hamburger menu-hamburger'>
             <div class="hamburger-box">
                 <div class='hamburger-inner'></div>
             </div>
-            <div class='menu-name'><span>M</span><span>E</span><span>N</span><span>U</span></div>
         </div>
     </header>
     <div class="bg-slide no-trans"></div>
@@ -252,56 +251,34 @@
                     <ul id="menu-main" class="menu">
                         <li id="menu-item-103"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-103">
-                            <span><a href="index.html" aria-current="page">Home</a></span>
+                            <span><a href="/" aria-current="page">Home</a></span>
                         </li>
                         <li id="menu-item-114"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
                             <span>
-                                <a href="about.html">About</a>
+                                <a href="/Home/About">About</a>
                             </span>
                         </li>
                         <li id="menu-item-116"
                             class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-116">
                             <span>
-                                <a href="work.html">Works</a>
+                                <a href="/Home/Works">Works</a>
                             </span>
                         </li>
                         <li id="menu-item-113"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113">
                             <span>
-                                <a href="join.html">Join</a>
+                                <a href="/Home/Join">Join</a>
                             </span>
                         </li>
                         <li id="menu-item-112"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112">
                             <span>
-                                <a href="contact.html">Contact</a>
+                                <a href="/Home/Contact">Contact</a>
                             </span>
                         </li>
                     </ul>
                 </div>
-                <ul class='socials'>
-                    <li>
-                        <a href='https://www.facebook.com' target="_blank"
-                           style="background-image:url(expert/assets\media\facebook.svg)" class="visible"></a>
-                        <a href='https://www.facebook.com' target="_blank"
-                           style="background-image:url(expert/assets/media/facebook_copy.svg)"
-                           class="hidden"></a>
-                    </li>
-                    <li>
-                        <a href='https://www.instagram.com' target="_blank"
-                           style="background-image:url(expert/assets/media/instgram.svg)" class="visible"></a>
-                        <a href='https://www.instagram.com' target="_blank"
-                           style="background-image:url(expert/assets/media/hover.svg)" class="hidden"></a>
-                    </li>
-                    <li>
-                        <a href='https://www.linkedin.com' target="_blank"
-                           style="background-image:url(expert/assets/media/Combined_shape_275.svg)"
-                           class="visible"></a> <a href='https://www.linkedin.com' target="_blank"
-                                                   style="background-image:url(expert/assets/media/Combined_shape_275_Copy.svg)"
-                                                   class="hidden"></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </section>
@@ -311,44 +288,47 @@
         <div class="inside">
             <a href='contact.html' class="title wow animate__fadeInDown" data-wow-offset="20">
                 <span class='arrow-a'><i></i></span>
-                <p>Contact us<br /> <em>We love making new friends</em></p>
+                <p>Contact us<br /> <em>@ViewBag.Setting?.ContactUsTitle</em></p>
             </a>
             <div class="info wow animate__fadeInDown" data-wow-offset="10">
                 <p>
-                    <a href="tel:+9721599596969">+972-1599-59 69 69</a><br /> <a href="mailto:office@uxpert.com">office@uxpert.com</a>
+                    <a href="tel:@ViewBag.Setting?.Mobile">@ViewBag.Setting?.Mobile</a><br /> <a href="mailto:@ViewBag.Setting?.Email">@ViewBag.Setting?.Email</a>
                 </p>
             </div>
             <div class="address wow animate__fadeInDown" data-wow-offset="10">
-                <p>30 Shacham st.<br /> Petah Tiqwa, Israel</p>
+                <p>@ViewBag.Setting?.Address</p>
             </div>
         </div>
     </div>
     <footer class='no-trans'>
         <div class="inside">
-            <a href='#toScroll' class="hidden scrollToContent">Scroll</a> <a href='#topTop'
-                                                                             class="scrollTotop">To Top</a>
+            <a href='#toScroll' class="hidden scrollToContent">Scroll</a>
+            <a href='#topTop' class="scrollTotop">To Top</a>
             <ul class='socials'>
                 <li>
-                    <a href='https://www.facebook.com' target="_blank"
-                       style="background-image:url(expert/assets/media/facebook.svg)" class="visible"></a> <a href='https://www.facebook.com' target="_blank"
-                                                                                                              style="background-image:url(expert/assets/media/facebook_copy.svg)" class="hidden"></a>
+                    <a href='@ViewBag.Setting?.FacebookUrl' target="_blank"
+                       style="background-image:url(expert/assets/media/facebook.svg)" class="visible"></a>
+                    <a href='@ViewBag.Setting?.FacebookUrl' target="_blank"
+                       style="background-image:url(expert/assets/media/facebook_copy.svg)" class="hidden"></a>
                 </li>
                 <li>
-                    <a href='https://www.instagram.com/' target="_blank"
-                       style="background-image:url(expert/assets/media/instgram.svg)" class="visible"></a> <a href='https://www.instagram.com/' target="_blank"
-                                                                                                              style="background-image:url(expert/assets/media/hover.svg)" class="hidden"></a>
+                    <a href='@ViewBag.Setting?.InstagramUrl' target="_blank"
+                       style="background-image:url(expert/assets/media/instgram.svg)" class="visible"></a>
+                    <a href='@ViewBag.Setting?.InstagramUrl' target="_blank"
+                       style="background-image:url(expert/assets/media/hover.svg)" class="hidden"></a>
                 </li>
                 <li>
-                    <a href='https://www.linkedin.com' target="_blank"
+                    <a href='@ViewBag.Setting?.LinkedInUrl' target="_blank"
                        style="background-image:url(expert/assets/media/Combined_shape_275.svg)"
-                       class="visible"></a> <a href='https://www.linkedin.com' target="_blank"
-                                               style="background-image:url(expert/assets/media/Combined_shape_275_Copy.svg)"
-                                               class="hidden"></a>
+                       class="visible"></a>
+                    <a href='@ViewBag.Setting?.LinkedInUrl' target="_blank"
+                       style="background-image:url(expert/assets/media/Combined_shape_275_Copy.svg)"
+                       class="hidden"></a>
                 </li>
             </ul>
         </div>
     </footer>
-    
+
     <script type='text/javascript'>
         var loftloaderPro = {
             "leavingProgressMax": "0.6",
@@ -362,5 +342,6 @@
     </script>
     <script src="/expert/assets/js/app.js" data-minify="1">
     </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

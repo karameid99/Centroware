@@ -10,12 +10,23 @@ namespace Centroware.Service.Services
     public class WorkService : IWorkService
     {
         private IBaseRepository<Work> _workRepository;
+        private IBaseRepository<Article> _articleRepository;
         private IMapper _mapper;
 
-        public WorkService(IBaseRepository<Work> workRepository, IMapper mapper)
+        public WorkService(IBaseRepository<Work> workRepository, IBaseRepository<Article> articleRepository, IMapper mapper)
         {
             _workRepository = workRepository;
+            _articleRepository = articleRepository;
             _mapper = mapper;
+        }
+
+        public async Task<bool> AddArticle(CreateArticleDto input)
+        {
+            if (input == null)
+                return false;
+            var article = _mapper.Map<CreateArticleDto, Article>(input);
+            await _articleRepository.AddAsync(article);
+            return true;
         }
 
         public async Task<CreateWorkDto> AddWork(CreateWorkDto input)

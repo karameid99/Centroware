@@ -10,6 +10,7 @@ namespace Centroware.Model.DTOs.Works
     {
         public string Title { get; set; }
         public string Image { get; set; }
+        public string WorkStringId { get; set; }
         public string Description { get; set; }
     }
 }
