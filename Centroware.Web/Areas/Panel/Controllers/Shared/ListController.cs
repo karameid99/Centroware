@@ -12,11 +12,13 @@ namespace Centroware.Web.Areas.Panel.Controllers.Shared
     public class ListController : BaseController
     {
         private readonly IBlogCategoryService _blogCategoryService;
+        private readonly ICategoryService _categoryService;
 
 
-        public ListController(IBlogCategoryService blogCategoryService, UserManager<CentrowareUser> userManager) : base(userManager)
+        public ListController(IBlogCategoryService blogCategoryService, ICategoryService categoryService, UserManager<CentrowareUser> userManager) : base(userManager)
         {
             _blogCategoryService = blogCategoryService;
+            _categoryService = categoryService;
         }
 
         public async Task<IActionResult> GetBlogCategory()
@@ -24,6 +26,10 @@ namespace Centroware.Web.Areas.Panel.Controllers.Shared
             var listData = await _blogCategoryService.List();
             return Json(listData);
         }
-
+        public async Task<IActionResult> GetCategory()
+        {
+            var listData = await _categoryService.List();
+            return Json(listData);
+        }
     }
 }

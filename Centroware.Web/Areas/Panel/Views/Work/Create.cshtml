@@ -1,4 +1,4 @@
-﻿@model Centroware.Model.DTOs.Blogs.BlogCreateDto
+﻿@model Centroware.Model.DTOs.Works.CreateWorkDto
 @{
 }
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -11,75 +11,84 @@
         padding-bottom: 3px;
     }
 </style>
-<div class="card card-custom">
-    <div class="card-header">
-        <h3 class="card-title">Create Work</h3>
-    </div>
-    <!--begin::Form-->
-    <div class="card-body">
-        <form asp-action="Create" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="Title"></label>
-                        <input asp-for="Title" class="form-control" />
-                        <span asp-validation-for="Title" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="BlogCategoryId"></label>
-                        <select asp-for="BlogCategoryId" id="BlogCategorySelect" class="form-control"></select>
-                        <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-9 col-sm-12">
-                    <label asp-for="StringTags"></label>
-                    <div style="min-height:2rem" class="form-group tags-container">
-                        <input id="kt_tagify_1" class="tagify" asp-for="StringTags" name="tags" placeholder="type..." />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="ImageFile"></label>
-                        <div class="custom-file">
-                            <input asp-for="ImageFile" type="file" class="custom-file-input" id="StaticImageFile">
-                            <label class="custom-file-label" for="StaticImageFile">Choose file</label>
-                        </div>
-                        <span asp-validation-for="ImageFile" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="form-group tags-container">
-                        <textarea asp-for="Description" id="summernote"></textarea>
-                    </div>
-                    <span asp-validation-for="ImageFile" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card-toolbar">
-                    <a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-toggle="modal" data-target="#exampleModalScrollable">
-                        <i class="ki ki-plus icon-nm"></i>
-                    </a>
-                </div>
-                <br />
-            </div>
-            <div id="Articles_Dev" class="row">
+<div class="row">
+    <div class="col-md-12">
 
+        <div class="card card-custom">
+            <div class="card-header">
+                <h3 class="card-title">Create Work</h3>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
-                <button type="button" data-dismiss="modal" class="btn btn-light-primary font-weight-bold">Cancel</button>
+            <!--begin::Form-->
+            <div class="card-body">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <input asp-for="WorkStringId" type="hidden" value="@ViewBag.WorkStringId" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Title"></label>
+                                <input asp-for="Title" class="form-control" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="SubTitle"></label>
+                                <input asp-for="SubTitle" class="form-control" />
+                                <span asp-validation-for="SubTitle" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CategoryId"></label>
+                                <select asp-for="CategoryId" id="CategorySelect" data-size="6" data-live-search="true" class="form-control select2" data-width="100%"><option>---Select Post Category---</option></select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="MainImageFile"></label>
+                                <div class="custom-file">
+                                    <input asp-for="MainImageFile" type="file" class="custom-file-input" id="StaticImageFile">
+                                    <label class="custom-file-label" for="StaticImageFile">Choose file</label>
+                                </div>
+                                <span asp-validation-for="MainImageFile" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group tags-container">
+                                <textarea asp-for="About" id="summernote"></textarea>
+                            </div>
+                            <span asp-validation-for="About" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-toolbar">
+                            <a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-toggle="modal" data-target="#exampleModalScrollable">
+                                <i class="ki ki-plus icon-nm"></i>
+                            </a>
+                        </div>
+                        <br />
+                    </div>
+                    <div id="Articles_Dev" class="row">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-light-primary font-weight-bold">Cancel</button>
+                    </div>
+                </form>
             </div>
-        </form>
+            <!--end::Form-->
+        </div>
     </div>
-    <!--end::Form-->
 </div>
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeLg" aria-hidden="true">
+
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeLg">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -89,17 +98,18 @@
                 </button>
             </div>
             <form id="ParagraphForm" class="form">
+                <input name="WorkStringId" type="hidden" value="@ViewBag.WorkStringId" />
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Custom Select</label>
-                                <input type="text" name="name" class="form-control" />
+                                <label>Title</label>
+                                <input type="text" name="Title" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>File Browser</label>
+                                <label>Image</label>
                                 <div class="custom-file">
                                     <input name="image" type="file" class="custom-file-input" id="customFile" />
                                     <label class="custom-file-label" for="customFile">Choose file</label>
@@ -108,20 +118,45 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Custom Select</label>
+                        <label>Description</label>
                         <textarea id="summernotemodal" name="text" type="text" class="form-control"></textarea>
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-            <button type="button" id="savebtn" class="btn btn-primary font-weight-bold">Save changes</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                <button type="button" id="savebtn" class="btn btn-primary font-weight-bold">Save changes</button>
+            </div>
         </div>
     </div>
 </div>
 @section Scripts{
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        // Class definition
+        var KTSelect2 = function () {
+            // Private functions
+            var demos = function () {
+                // basic
+                $('#CategorySelect').select2({
+                    placeholder: "Select a state"
+                });
+            }
+
+            // Public functions
+            return {
+                init: function () {
+                    demos();
+                    modalDemos();
+                }
+            };
+        }();
+
+        // Initialization
+        jQuery(document).ready(function () {
+            KTSelect2.init();
+        });</script>
+
     <script>$('#summernote').summernote({ height: 200 });</script>
     <script>$('#summernotemodal').summernote({ height: 200 });</script>
     <partial name="_ValidationScriptsPartial" />
@@ -138,9 +173,12 @@
                     contentType: false,
                     processData: false,
                     success: function (response) {
-                        var json = JSON.parse(response);
+                        $(".modal-backdrop").removeClass('modal-backdrop');
+                        $("#exampleModalScrollable").modal('hide');
+                        form.reset();
+                        var json = JSON.parse(response.message);
                         ShowMessage(json.msg);
-                        $("#Articles_Dev").append('<div class="col-md-4"><div class="card card-custom gutter-b"><div class="card-header"><div class="card-title"><h3 class="card-label"><small> sub title sub title sub title</small></h3></div><div class="card-toolbar"><a href="" class="btn btn-sm btn-icon btn-light-danger mr-2"><i class="flaticon2-drop"></i></a></div></div></div></div>');
+                        $("#Articles_Dev").append('<div  id="' + response.data.id + '" class="col-md-4"><div class="card card-custom gutter-b"><div class="card-header"><div class="card-title"><h3 class="card-label"><small>' + response.data.title + '</small></h3></div><div class="card-toolbar"><a onClick="deleteArticle(' + response.data.id + ')" class="btn btn-sm btn-icon btn-light-danger mr-2"><i class="flaticon2-delete"></i></a></div></div></div></div>');
                     },
                     error: function (jqXHR, error, errorThrown) {
 
@@ -150,59 +188,34 @@
         });
     </script>
     <script>
-        var inputElm = document.querySelector('input[name=tags]');
-        // initialize Tagify on the above input node reference
-        var tagify = new Tagify(inputElm);
+        function deleteArticle(id) {
+            jQuery.ajax({
+                type: 'Delete',
+                url: '/Panel/Work/DeleteArticle/' + id + '',
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    var json = JSON.parse(response);
+                    ShowMessage(json.msg);
+                    $("#" + id).remove();
+                },
+                error: function (jqXHR, error, errorThrown) {
 
-        // Chainable event listeners
-        tagify.on('add', onAddTag)
-            .on('remove', onRemoveTag)
-            .on('input', onInput)
-            .on('edit', onTagEdit)
-            .on('invalid', onInvalidTag)
-            .on('click', onTagClick)
-            .on('focus', onTagifyFocusBlur)
-            .on('blur', onTagifyFocusBlur)
-
-        var mockAjax = (function mockAjax() {
-            var timeout;
-            return function (duration) {
-                clearTimeout(timeout); // abort last request
-                return new Promise(function (resolve, reject) {
-                    timeout = setTimeout(resolve, duration || 700, whitelist)
-                })
-            }
-        })()
-
-        // tag added callback
-        function onAddTag(e) {
-            console.log("onAddTag: ", e.detail);
-            console.log("original input value: ", inputElm.value)
-            tagify.off('add', onAddTag) // exmaple of removing a custom Tagify event
-        }
-
-        // tag remvoed callback
-        function onRemoveTag(e) {
-            console.log("onRemoveTag:", e.detail, "tagify instance value:", tagify.value)
-        }
-
-        function onTagEdit(e) {
-            console.log("onTagEdit: ", e.detail);
-        }
-
-        // invalid tag added callback
-        function onInvalidTag(e) {
-            console.log("onInvalidTag: ", e.detail);
-        }
-
-        // invalid tag added callback
-        function onTagClick(e) {
-            console.log(e.detail);
-            console.log("onTagClick: ", e.detail);
-        }
-
-        function onTagifyFocusBlur(e) {
-            console.log(e.type, "event fired")
-        }
+                }
+            });
+        };
     </script>
+    <script>
+        $.ajax({
+            url: '/Panel/List/GetCategory',
+            dataType: "json",
+            success: function (data) {
+                $(data).each(function (index, value) {
+                    $("#CategorySelect").append($("<option></option>").val(value.id).html(value.name));
+                });
+            }
+        });
+    </script>
+
 }

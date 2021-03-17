@@ -144,23 +144,26 @@
     </section>
     <section class="hp-section hp-07">
         <ul class='post-object'>
-            <li class="item wow animate__fadeInUp">
-                <a href='work/apps/leumi-digital-account.html'
-                   class="portfolio work" data-cat="work" aria-label="Leumi &#8211; Digital Account">
-                    <div class="portfolio-wrapper b-lazy"
-                         data-src="/expert/assets/uploads/2020/05/%d7%a8%d7%90%d7%a9%d7%99-1024x541.jpg">
-                        <img src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw = = alt='' />
-                        <div class="label">
-                            <div class="label-text">
-                                <div class="text-title">Leumi &#8211; Digital Account</div> <span class="text-category">mobile app</span> <span class="text-slug">
-                                    Opening an
-                                    account made easy
-                                </span>
+            @foreach (var item in Model.Worsk)
+            {
+                <li class="item wow animate__fadeInUp">
+                    <a href='/Home/work/@item.Id'
+                       class="portfolio work" data-cat="work" aria-label="Leumi &#8211; Digital Account">
+                        <div class="portfolio-wrapper b-lazy"
+                             data-src="/Images/@item.MainImage">
+                            <img src="/Images/@item.MainImage" alt='' />
+                            <div class="label">
+                                <div class="label-text">
+                                    <div class="text-title">@item.Title</div> <span class="text-category">@item.Category</span> <span class="text-slug">
+                                        @item.SubTitle
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </li>
+                    </a>
+                </li>
+
+            }
         </ul>
     </section>
     <section class="hp-section hp-08">
@@ -749,7 +752,7 @@
             success: function (result) {
                 var res = "";
                 $.each(result, function (i, v) {
-                    res = res + '<li class="sitem item"><div class="thumb"><div class="icon"><img src="/Images/' + v.image + '"alt=""></div><div class="description"><p><strong>'+v.title+'</strong></p></div></div></li>';
+                    res = res + '<li class="sitem item"><div class="thumb"><div class="icon"><img src="/Images/' + v.image + '"alt=""></div><div class="description"><p><strong>' + v.title + '</strong></p></div></div></li>';
                 })
                 $("#div_Services").html(res);
             }

@@ -100,7 +100,7 @@ namespace Centroware.Service.Services
             if (input != null)
             {
                 var Blog = _mapper.Map<BlogUpdateDto, Blog>(input);
-                var oldBlog = await _BlogRepository.Get(input.Id);
+                var oldBlog = await _BlogRepository.FindFirst(x => x.Id == input.Id);
                 Blog.ImagePath = input.ImageFile != null ?
                     await _fileService.SaveFile(input.ImageFile, "Images") : oldBlog.ImagePath;
 

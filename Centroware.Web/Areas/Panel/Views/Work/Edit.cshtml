@@ -1,0 +1,222 @@
+﻿@model Centroware.Model.DTOs.Works.UpdateWorkDto
+@{
+}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-custom">
+            <div class="card-header">
+                <h3 class="card-title">Create Work</h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <input asp-for="Id" type="hidden" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Title"></label>
+                                <input asp-for="Title" class="form-control" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="SubTitle"></label>
+                                <input asp-for="SubTitle" class="form-control" />
+                                <span asp-validation-for="SubTitle" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CategoryId"></label>
+                                <select asp-for="CategoryId" id="CategorySelect" data-size="6" data-live-search="true" class="form-control select2" data-width="100%"><option>---Select Post Category---</option></select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="MainImageFile"></label>
+                                <div class="custom-file">
+                                    <input asp-for="MainImageFile" type="file" class="custom-file-input" id="StaticImageFile">
+                                    <label class="custom-file-label" for="StaticImageFile">Choose file</label>
+                                </div>
+                                <span asp-validation-for="MainImageFile" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group tags-container">
+                                <textarea asp-for="About" id="summernote"></textarea>
+                            </div>
+                            <span asp-validation-for="About" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-toolbar">
+                            <a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-toggle="modal" data-target="#exampleModalScrollable">
+                                <i class="ki ki-plus icon-nm"></i>
+                            </a>
+                        </div>
+                        <br />
+                    </div>
+                    <div id="Articles_Dev" class="row">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-light-primary font-weight-bold">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeLg">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <form id="ParagraphForm" class="form">
+                <input type="hidden" name="WorkId" value="@Model.Id" />
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" name="Title" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <div class="custom-file">
+                                    <input name="image" type="file" class="custom-file-input" id="customFile" />
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="summernotemodal" name="text" type="text" class="form-control"></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                <button type="button" id="savebtn" class="btn btn-primary font-weight-bold">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        // Class definition
+        var KTSelect2 = function () {
+            // Private functions
+            var demos = function () {
+                // basic
+                $('#CategorySelect').select2({
+                    placeholder: "Select a state"
+                });
+            }
+
+            // Public functions
+            return {
+                init: function () {
+                    demos();
+                    modalDemos();
+                }
+            };
+        }();
+
+        // Initialization
+        jQuery(document).ready(function () {
+            KTSelect2.init();
+        });</script>
+    <script>$('#summernote').summernote({ height: 200 });</script>
+    <script>$('#summernotemodal').summernote({ height: 200 });</script>
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $.ajax({
+            url: '/Panel/Work/GetAllArticle/@Model.Id',
+            success: function (result) {
+                var res = "";
+                $.each(result, function (i, v) {
+                    res = res + '<div  id="' + v.id + '" class="col-md-4"><div class="card card-custom gutter-b"><div class="card-header"><div class="card-title"><h3 class="card-label"><small>' + v.title + '</small></h3></div><div class="card-toolbar"><a onClick="deleteArticle(' + v.id + ')" class="btn btn-sm btn-icon btn-light-danger mr-2"><i class="flaticon2-delete"></i></a></div></div></div></div>';
+                });
+                $("#Articles_Dev").html(res);
+            }
+        });
+    </script>
+    <script>
+        $(document).on("click", "#savebtn", function (e) {
+            if ($("#ParagraphForm").valid()) {
+                var form = jQuery('#ParagraphForm')[0];
+                var data = new FormData(form);
+                jQuery.ajax({
+                    type: 'POST',
+                    url: '/Panel/Work/CreateArticle/@Model.Id',
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        $(".modal-backdrop").removeClass('modal-backdrop');
+                        $("#exampleModalScrollable").modal('hide');
+                        form.reset();
+                        var json = JSON.parse(response.message);
+                        ShowMessage(json.msg);
+                        $("#Articles_Dev").append('<div  id="' + response.data.id + '" class="col-md-4"><div class="card card-custom gutter-b"><div class="card-header"><div class="card-title"><h3 class="card-label"><small>' + response.data.title + '</small></h3></div><div class="card-toolbar"><a onClick="deleteArticle(' + response.data.id + ')" class="btn btn-sm btn-icon btn-light-danger mr-2"><i class="flaticon2-delete"></i></a></div></div></div></div>');
+                    },
+                    error: function (jqXHR, error, errorThrown) {
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+        function deleteArticle(id) {
+            jQuery.ajax({
+                type: 'Delete',
+                url: '/Panel/Work/DeleteArticle/' + id + '',
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    var json = JSON.parse(response);
+                    ShowMessage(json.msg);
+                    $("#" + id).remove();
+                },
+                error: function (jqXHR, error, errorThrown) {
+
+                }
+            });
+        };
+    </script>
+    <script>
+        $.ajax({
+            url: '/Panel/List/GetCategory',
+            dataType: "json",
+            success: function (data) {
+                $(data).each(function (index, value) {
+                    if (value.id == @Model.CategoryId) {
+                        $("#CategorySelect").append($("<option selected></option>").val(value.id).html(value.name));
+                    } else {
+                        $("#CategorySelect").append($("<option></option>").val(value.id).html(value.name));
+                    }                });
+            }
+        });
+    </script>
+
+}

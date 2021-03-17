@@ -16,10 +16,6 @@ var KTDatatableAutoColumnHideDemo = function () {
             },
             layout: {
                 scroll: true,
-                spinner: {
-                    overlayColor: '#ff00ff',
-                }
-
             },
             sortable: true,
             pagination: true,

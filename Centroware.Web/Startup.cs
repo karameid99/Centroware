@@ -32,7 +32,16 @@ namespace Centroware.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<CentrowareUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<CentrowareUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.SignIn.RequireConfirmedEmail = false;
+            })
                 .AddEntityFrameworkStores<CentrowareDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -49,6 +58,9 @@ namespace Centroware.Web
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IHomeService, HomeService>();
             services.AddTransient<IWorkService, WorkService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IOpinionService, OpinionService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +81,7 @@ namespace Centroware.Web
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -76,7 +76,7 @@ $("#Confirm .btn-danger").click(function () {
                     eval(fname);
                 }
             }
-            
+
             ShowMessage(json.msg);
         }
     });
@@ -118,39 +118,37 @@ function ShowMessage(msg) {
 }
 
 function PageLoadActions() {
-
-    $(".date").datepicker({ format: "dd/mm/yyyy", endDate: "+0d", autoclose: true });
-    $(".input-daterange").datepicker({ format: "dd/mm/yyyy", endDate: "+0d", autoclose: true });
     $(".ajaxForm").ajaxForm({
         success: function (jsonObject) {
-            var json = JSON.parse(jsonObject);
-            console.log(json.msg);
-            if (json.status == 1) {
-
-                var tname = $('.ajaxForm').attr("tname");
-                var fname = $('.ajaxForm').attr("fname");
-                if (fname != null) {
-                    eval(fname);
-                }
-
-                $('#kt_datatable').KTDatatable().reload();
-                if (!$("#tblItems").hasClass("autohide")) {
-                    $(".ajaxForm").resetForm();
-                    $("#tblItems tbody tr").remove();
-                    $("#tblItems").addClass("hidden").next().show();
-                }
-                else {
-                    $(".select2").val('').change();
-                }
-            }
-
-            if (json.msg != null)
-            ShowMessage(json.msg);
-            if (json.redirect != null)
-                window.location = json.redirect;
-            if (json.close == 1)
-                $("#PopUp").modal("hide");
             $(".ajaxForm :submit").prop("disabled", false);
+            if (jsonObject != null) {
+                var json = JSON.parse(jsonObject);
+                if (json.status == 1) {
+
+                    var tname = $('.ajaxForm').attr("tname");
+                    var fname = $('.ajaxForm').attr("fname");
+                    if (fname != null) {
+                        eval(fname);
+                    }
+
+                    $('#kt_datatable').KTDatatable().reload();
+                    if (!$("#tblItems").hasClass("autohide")) {
+                        $(".ajaxForm").resetForm();
+                        $("#tblItems tbody tr").remove();
+                        $("#tblItems").addClass("hidden").next().show();
+                    }
+                    else {
+                        $(".select2").val('').change();
+                    }
+                }
+
+                if (json.msg != null)
+                    ShowMessage(json.msg);
+                if (json.redirect != null)
+                    window.location = json.redirect;
+                if (json.close == 1)
+                    $("#PopUp").modal("hide");
+            }
         },
         beforeSubmit: function () {
             $(".ajaxForm :submit").prop("disabled", true);

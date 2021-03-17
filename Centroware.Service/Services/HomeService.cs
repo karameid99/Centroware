@@ -5,6 +5,7 @@ using Centroware.Model.Entities.Works;
 using Centroware.Model.ViewModels.HomeVms;
 using Centroware.Model.ViewModels.Services;
 using Centroware.Model.ViewModels.Settings;
+using Centroware.Model.ViewModels.Works;
 using Centroware.Repository.Interfaces.Generic;
 using Centroware.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -39,9 +40,19 @@ namespace Centroware.Service.Services
         {
             var homeSetting = await _homeSettingRepository.FindFirst(x => x.Id > 0);
             var homeSettingVm = _mapper.Map<HomeSetting, HomeSettingVm>(homeSetting);
+            var works = await _workRepository
+                .Filter(filter: x => x.Id > 0, 0, 4, orderBy: x => x.OrderByDescending(x => x.Id)).Select(x => new WorkVm
+                {
+                    Title = x.Title,
+                    Id = x.Id,
+                    MainImage = x.MainImage,
+                    Category = x.Category.Name,
+                    SubTitle = x.SubTitle
+                }).ToListAsync();
             return new HomeVm
             {
                 HomeSetting = homeSettingVm,
+                Worsk = works,
             };
         }
 

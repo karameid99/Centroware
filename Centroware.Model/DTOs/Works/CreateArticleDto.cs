@@ -12,5 +12,6 @@ namespace Centroware.Model.DTOs.Works
         public string Image { get; set; }
         public string WorkStringId { get; set; }
         public string Description { get; set; }
+        public int? WorkId { get; set; }
     }
 }

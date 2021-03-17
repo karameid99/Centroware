@@ -9,7 +9,7 @@ namespace Centroware.Model.Entities.Identity
 {
     public class CentrowareUser : IdentityUser
     {
-        public int FirstName { get; set; }
-        public int LastName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
