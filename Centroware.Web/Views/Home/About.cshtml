@@ -1,0 +1,173 @@
+﻿@model Centroware.Model.ViewModels.HomeVms.AboutVm
+@{
+    ViewData["Title"] = "About";
+}
+<section class="menu-bg"></section>
+<section class="header-space"></section>
+<section class="about-header">
+    <div class="in">
+        <div class="table">
+            <div class="table-cell">
+                <h1>
+                    <div class="title">
+                        <div class='d-out'>
+                            <span class="wow animate__matrixUp" data-wow-delay="0.1s">
+                                <span class="d-title">About</span>
+                            </span>
+                        </div>
+                        <div class='d-out'>
+                            <span class="wow animate__matrixUp" data-wow-delay="0.1s">
+                                <span class="d-title">Us</span>
+                            </span>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+            <div class="table-cell description wow animate__matrixUp">
+                <p>
+                     <span style="color: #000000;">
+                       
+                    </span>
+                </p>
+                <div id="trigger1" class="spacer s0"></div>
+            </div>
+        </div>
+        <div class="line" id='animate1'></div>
+        <div class="line hide-in-desctop" id='animate1'></div>
+    </div>
+</section>
+<section id='toScroll'></section>
+<section class="what-we-do-ip wow">
+    <div class="in">
+        <div class="table">
+            <div class="table-cell">
+                <h2>
+                    <div class="title">
+                        <div class='sline'></div>
+                        <div class='d-out'>
+                            <span class="preloader-el title-ins">
+                                <span class="d-title">What</span>
+                            </span>
+                        </div>
+                        <div class='d-out'>
+                            <span class="preloader-el title-ins">
+                                <span class="d-title">
+                                    We
+                                    Do
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </h2>
+                <div class="description de-desc">
+                    <p>
+                        @Model.About.WeDoDescription
+                    </p>
+                </div>
+            </div>
+        </div>
+        <ul class="items">
+            @foreach (var item in Model.Services)
+            {
+                <li class="item sitem">
+                    <div class="icon">
+                        <img src='/Images/@item.Image' alt=''>
+                    </div>
+                    <div class="title">@item.Title</div>
+                    <div class="description">
+                        @item.Description
+                    </div>
+                </li>
+
+            }
+
+        </ul>
+    </div>
+</section>
+@foreach (var item in Model.Teams)
+{
+    <div class="fullteam" data-id='@item.Id'>
+        <div class='hamburger teamham'>
+            <div class="hamburger-box">
+                <div class='hamburger-inner'></div>
+            </div>
+        </div>
+        <div class="in">
+            <div class="table">
+                <div class="table-cell image">
+                    <img src='/Images/@item.MovedImage'
+                         data-id='/Images/@item.MovedImage' alt=''>
+                </div>
+                <div class="table-cell info">
+                    <div class="title">@item.Name</div>
+                    <div class="role">@item.Specialization</div>
+                    <div class="description">
+                        <p>
+                            @item.Description
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+<section class="our-team">
+    <div class="team-oi wow">
+        <div class="in">
+            <div class="table">
+                <div class="table-cell title">
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins">
+                            <span class="d-title s-title">Our</span>
+                        </span>
+                    </div>
+                    <div class="d-out">
+                        <span class="preloader-el title-ins">
+                            <span class="d-title it-title">awesome</span>
+                        </span>
+                    </div>
+                    <div class='d-out'>
+                        <span class="preloader-el title-ins">
+                            <span class="d-title s-title">Team</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="table-cell description de-desc">
+                    <div class="title-ds">
+                        <p><strong>The right skills</strong><br /> <em>for your success</em></p>
+                    </div>
+                    <p>
+                        @Model.About.OurTeamDescription
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="a-line"></div>
+    </div>
+
+    <ul class="team">
+        @foreach (var item in Model.Teams)
+        {
+            <li class="item wow">
+                <div class="thumb" data-id='@item.Id'>
+                    <div class="icon sitem">
+                        <img class='stat' src='/Images/@item.StaticImage'
+                             data-id='/Images/@item.MovedImage' alt=''>
+                    </div>
+                    <div class="sitem">
+                        <div class="title">@item.Name</div>
+                        <div class="description">@item.Specialization</div>
+                    </div>
+                </div>
+            </li>
+
+        }
+    </ul>
+</section>
+
+@section Scripts{
+
+}

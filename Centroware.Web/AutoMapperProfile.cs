@@ -7,12 +7,14 @@ using Centroware.Model.DTOs.Teams;
 using Centroware.Model.DTOs.Users;
 using Centroware.Model.DTOs.Works;
 using Centroware.Model.Entities.Blogs;
+using Centroware.Model.Entities.Contact;
 using Centroware.Model.Entities.Identity;
 using Centroware.Model.Entities.Jobs;
 using Centroware.Model.Entities.Sayings;
 using Centroware.Model.Entities.Settings;
 using Centroware.Model.Entities.Teams;
 using Centroware.Model.Entities.Works;
+using Centroware.Model.ViewModels.Contacts;
 using Centroware.Model.ViewModels.HomeVms;
 using Centroware.Model.ViewModels.Settings;
 using System;
@@ -60,6 +62,8 @@ namespace Centroware.Web
             CreateMap<UpdateOpinionDto, Opinion>().ReverseMap();
             CreateMap<UpdateWorkDto, Work>().ReverseMap();
             CreateMap<MainSetting, MainSettingsVm>();
+            CreateMap<AboutSetting, AboutSettingVm>().ReverseMap();
+            CreateMap<ContactVm, Contact>().ReverseMap();
 
         }
 

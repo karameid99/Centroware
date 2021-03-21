@@ -1,0 +1,152 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section class="menu-bg"></section>
+<div class="thank-you">
+    <div class="table in">
+        <div class="table-cell">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="title">
+                        <div class="thanks">Thanks,</div>
+                        <div class="name"></div>
+                    </div>
+                    <div class="subtitle">We'll get back to you shortly</div>
+                    <div class="description">
+                        <p>This may be the beginning<br /> of a great new friendship!</p>
+                    </div>
+                </div>
+                <div class="table-cell">
+                    <div class="image"><img src='assets/uploads/2020/08/contact_4.8.20.gif' alt=''></div>
+                </div>
+            </div>
+            <div class="description hide-in-desctop">
+                <p>This may be the beginning<br /> of a great new friendship!</p>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="header-space"></section>
+<div class="contact-page">
+    <div class="left">
+        <h1>Contact us</h1>
+        <div class="address">
+            <p><a href="tel:+97239230182">+972-3-9230182</a><br /> 30 Shacham street,<br /> Petah Tiqwa, Israel</p>
+        </div>
+    </div>
+    <div class="center" id='contact-form'>
+        <div hidden id="success" class="alert alert-success">
+            <strong>Meesage send Succesfully!</strong> 
+        </div>
+        <div id="error" hidden class="alert alert-success">
+            <strong>Please Inter All Fields.!</strong>
+        </div>
+        <div role="form" class="wpcf7" id="wpcf7-f167-o1" lang="en-US" dir="ltr">
+            <div class="screen-reader-response" aria-live="polite"></div>
+            <form id="contactForm" class="wpcf7-form">
+                <div class="wpcf7-response-output wpcf7-display-none" aria-hidden="true"></div>
+                <ul class='contact-form'>
+                    <li>
+                        <div class='input'>
+                            <label>First Name</label>
+                            <span class="wpcf7-form-control-wrap first-name">
+                                <input type="text" name="firstName"
+                                       value="" size="40"
+                                       class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                       aria-required="true" aria-invalid="false" />
+                            </span>
+                        </div>
+                        <div class='input'>
+                            <label>Last Name</label>
+                            <span class="wpcf7-form-control-wrap last-name">
+                                <input type="text" name="lastName"
+                                       value="" size="40"
+                                       class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                       aria-required="true" aria-invalid="false" />
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='input'>
+                            <label>Mobile</label>
+                            <span class="wpcf7-form-control-wrap your-phone">
+                                <input type="tel" name="Mobile"
+                                       value="" size="40"
+                                       class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel"
+                                       id="your-phone" aria-invalid="false" />
+                            </span>
+                        </div>
+                    </li>
+                    <li class='email'>
+                        <div class='input'>
+                            <label>Email</label>
+                            <span class="wpcf7-form-control-wrap your-email">
+                                <input type="email" name="Email"
+                                       value="" size="40"
+                                       class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                       aria-required="true" aria-invalid="false" />
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='input message'>
+                            <label>Your message</label>
+                            <span class="wpcf7-form-control-wrap your-message">
+                                <textarea name="Message" cols="40"
+                                          rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
+                                          aria-required="true" aria-invalid="false"></textarea>
+                            </span>
+                        </div>
+                    </li>
+                    <li> <input type ="submit" id="sendMassage" value="Send" class="wpcf7-form-control wpcf7-submit" /></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div class="map">
+        <div id="map_canvas"></div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;language=en&amp;key=AIzaSyDY8QyNZgvaOL1GoGi0ojKB4aaIWkaa7Zo"></script>
+    <script src="~/expert/assets/js/map.js" data-minify="1">
+    </script>
+    <script>
+        $(document).on("click", "#sendMassage", function (e) {
+
+            e.preventDefault();
+            var form = jQuery('#contactForm')[0];
+
+            var data = new FormData(form);
+
+            jQuery.ajax({
+                type: 'POST',
+                url: '/Home/CreateContact',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response == "success") {
+                        $('#success').show();
+                        $('#error').hide();
+                        $('#contactForm')[0].reset();
+
+                    }
+                    else {
+                        $('#error').show();
+                        $('#success').hide();
+                    }
+                },
+                error: function (jqXHR, error, errorThrown) {
+                    $('#errorAlertComment').show();
+                    $('#succesAlertComment').hide();
+                }
+            });
+        });
+    </script>
+
+}

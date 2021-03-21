@@ -12,5 +12,7 @@ namespace Centroware.Model.ViewModels.Teams
         public string Name { get; set; }
         public string Specialization { get; set; }
         public string StaticImage { get; set; }
+        public string MovedImage { get; set; }
+        public string Description { get; set; }
     }
 }

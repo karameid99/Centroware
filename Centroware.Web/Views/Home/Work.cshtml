@@ -1,0 +1,74 @@
+﻿@model Centroware.Model.ViewModels.HomeVms.WorksVm
+@{
+    ViewData["Title"] = "Works";
+}
+<section class="header-space"></section>
+<section class="category-header works-header">
+    <div class="in">
+        <div class="table">
+            <div class="table-cell title">
+                <div class='sline wow animate__sline' data-wow-delay="0.1s"></div>
+                <div class='d-out'>
+                    <span class="wow animate__matrixUp" data-wow-delay="0.1s">
+                        <span class="d-title">Our</span>
+                    </span>
+                </div>
+                <div class='d-out'>
+                    <span class="wow animate__matrixUp" data-wow-delay="0.1s">
+                        <span class="d-title">Work</span>
+                    </span>
+                </div> <span class="float-sumbol wow animate__fadeIn"
+                             data-wow-delay="0.2s"></span>
+            </div>
+            <div class="table-cell description wow animate__fadeInUp">
+                <p>Here&#8217;s a selection of our designs. Enjoy!</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="nav-out no-trans">
+        <div class="nav-in">
+            <nav class="filter-nav">
+                <ul id="filters" class="clearfix button-group">
+                    <li><span class="filter button active" data-filter="*">All</span></li>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <li><span class="filter button" data-filter=".@item.Id">@item.Name</span></li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="nav-space"></div>
+    <div id="portfoliolist" class="grid">
+        @foreach (var item in Model.Works)
+        {
+            <a href='Home/work/@item.Id' class="portfolio element-item @item.CategoryId b2b"
+               data-category="work" aria-label="Imperva &#8211; CounterBreach" id='imperva'>
+                <div class="portfolio-wrapper"
+                     style="background-image:url(/Images/@item.MainImage)">
+                    <img src="" alt='' />
+                    <div class="label">
+                        <div class="label-text">
+                            <div class="text-title">
+                                @item.Title
+                            </div>
+                            <span class="text-category">
+                                @item.Category
+                            </span>
+                            <span class="text-slug">
+                                @item.SubTitle
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        }
+    </div>
+</div>
+
+@section Scripts{
+
+}

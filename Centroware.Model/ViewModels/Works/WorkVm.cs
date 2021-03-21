@@ -9,6 +9,7 @@ namespace Centroware.Model.ViewModels.Works
     public class WorkVm
     {
         public int Id { get; set; }
+        public int CategoryId { get; set; }
         public string MainImage { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }

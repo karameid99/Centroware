@@ -10,7 +10,7 @@ namespace Centroware.Web.Areas.Panel.Controllers
     [Area("Panel")]
     [Route("Panel/[controller]/[action]")]
     [Route("Panel/[controller]/[action]/{id?}")]
-    [Authorize]
+    //[Authorize]
     public class BaseController : Controller
     {
         protected readonly UserManager<CentrowareUser> _userManager;

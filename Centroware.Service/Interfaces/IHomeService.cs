@@ -1,4 +1,5 @@
 ﻿using Centroware.Model.Entities.Settings;
+using Centroware.Model.ViewModels.Contacts;
 using Centroware.Model.ViewModels.HomeVms;
 using Centroware.Model.ViewModels.Services;
 using Centroware.Model.ViewModels.Settings;
@@ -14,6 +15,9 @@ namespace Centroware.Service.Interfaces
     {
         Task<MainSettingsVm> GetMainSettings();
         Task<HomeVm> GetHomePage();
+        Task<AboutVm> GetAboutPage();
+        Task<ContactVm> CreateContact(ContactVm contact);
         Task<List<ServiceVm>> GetServices();
+        Task<WorksVm> GetWorksPage();
     }
 }
