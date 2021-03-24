@@ -1,0 +1,145 @@
+﻿@model Centroware.Model.ViewModels.Works.WorkVm
+@{
+    ViewData["Title"] = Model.Title;
+}
+<style>
+    .grid-image-text .in .desc ul li:before {
+        background-color: #000
+    }
+</style>
+<section class="menu-bg"></section>
+<section class="header-space"></section>
+<section class='work-header show-gradient b-lazy'
+         data-src="/Images/@Model.MainImage">
+    <div class="in">
+        <div class="table">
+            <div class="table-cell">
+                <h1 style=''>@Model.Title</h1>
+                <h2 style=''>@Model.SubTitle</h2>
+                <div class="category">@Model.Category</div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id='toScroll'></div>
+<section class="work-about" style="background-color:#0297ef">
+    <div class="in">
+        <ul class="list">
+            <li>
+                <div class="title">about</div>
+                <div class="desc">
+                    <p>
+                        @Html.Raw(Model.About)
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="title">our part</div>
+                <div class="desc">
+                    @Html.Raw(Model.OurPart)
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+@{
+    var leftClass = "grid-image-text  wow animate__fadeInUp layout-02";
+    var rightClass = "grid-image-text grid-text-image wow animate__fadeInUp";
+    for (int i = 0; i < Model.Articles.Count; i++)
+    {
+        var classDev = i / 2 == 0 ? leftClass : rightClass;
+        <section class="@classDev" data-wow-duration="1s">
+            <div class="table grid-image">
+                <div class="table-cell"></div>
+                @if (!string.IsNullOrEmpty(Model.Articles[i].Image) && Model.Articles[i].Image.Contains("mp4"))
+                {
+                    <div class="table-cell">
+                        <img class='b-lazy' data-src='/Images/@Model.Articles[i].Image' alt=''>
+                    </div>
+                }
+                else
+                {
+                    <div class="table-cell">
+                        <img class='b-lazy' data-src='/Images/@Model.Articles[i].Image' alt=''>
+                    </div>
+                }
+            </div>
+            <div class="in">
+                <div class="image"></div>
+                <div class="content">
+                    <h2>
+                        <p>@Model.Articles[i].Title</p>
+                    </h2>
+                    <div class="desc">
+                        @Html.Raw(Model.Articles[i].Description)
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}
+<section class="more_works hide-in-desctop wow animate__fadeInUp" data-wow-duration="1s">
+    <div class="inside">
+        <div class='title'>
+            <p><strong>Explore</strong> <em>more</em></p>
+        </div>
+        <div class="post-object">
+            <div class="item">
+                <a href='security-shift-management.html' class="portfolio " data-cat=""
+                   aria-label="IAA &#8211; Security Shift Management">
+                    <div class="portfolio-wrapper"
+                         style="background-image:url(/expert/assets/uploads/2020/08/iaa-main-pic-1024x542.jpg)">
+                        <img src=''
+                             alt='' />
+                        <div class="label">
+                            <div class="label-text">
+                                <div class="text-title">IAA &#8211; Security Shift Management</div> <span class="text-category">multi-platform</span> <span class="text-slug">
+                                    Making
+                                    airports even more secure
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href='../websites/fibi-marketing-site.html' class="portfolio " data-cat=""
+                   aria-label="FIBI &#8211; Marketing Site">
+                    <div class="portfolio-wrapper"
+                         style="background-image:url(/expert/assets/uploads/2020/09/hero2-1024x537.png)">
+                        <img src='' alt='' />
+                        <div class="label">
+                            <div class="label-text">
+                                <div class="text-title">FIBI &#8211; Marketing Site</div> <span class="text-category">website</span> <span class="text-slug">
+                                    Friendly
+                                    banking
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href='../videa-algo-trading.html' class="portfolio " data-cat=""
+                   aria-label="VIDEA &#8211; Managed Portfolio">
+                    <div class="portfolio-wrapper"
+                         style="background-image:url(/expert/assets/uploads/2020/08/bg-hero-1024x541.jpg)">
+                        <img src='' alt='' />
+                        <div class="label">
+                            <div class="label-text">
+                                <div class="text-title">VIDEA &#8211; Managed Portfolio</div> <span class="text-category">multi-platform</span> <span class="text-slug">
+                                    Stock Market
+                                    for everyone
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="/expert/assets/js/project.js" data-minify="1"></script>
+}

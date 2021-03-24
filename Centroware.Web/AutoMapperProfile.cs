@@ -17,6 +17,7 @@ using Centroware.Model.Entities.Works;
 using Centroware.Model.ViewModels.Contacts;
 using Centroware.Model.ViewModels.HomeVms;
 using Centroware.Model.ViewModels.Settings;
+using Centroware.Model.ViewModels.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,7 @@ namespace Centroware.Web
             CreateMap<MainSetting, MainSettingsVm>();
             CreateMap<AboutSetting, AboutSettingVm>().ReverseMap();
             CreateMap<ContactVm, Contact>().ReverseMap();
+            CreateMap<Work, WorkVm>().ForMember(x => x.Category, x => x.MapFrom(x => x.Category.Name));
 
         }
 

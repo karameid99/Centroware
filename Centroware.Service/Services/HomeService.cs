@@ -113,6 +113,16 @@ namespace Centroware.Service.Services
             }).ToListAsync();
         }
 
+        public async Task<WorkVm> GetWork(int id)
+        {
+            var work = await _workRepository.Filter(x => x.Id == id, include: x => x.Include(x => x.Articles).Include(x=> x.Category)).FirstOrDefaultAsync();
+            if (work == null)
+            {
+                return null;
+            }
+            var dataVm = _mapper.Map<WorkVm>(work);
+            return dataVm;
+        }
         public async Task<WorksVm> GetWorksPage()
         {
             var works = await _workRepository.Filter(filter: x => x.Id > 0,

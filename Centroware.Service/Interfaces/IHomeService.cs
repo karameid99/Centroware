@@ -3,6 +3,7 @@ using Centroware.Model.ViewModels.Contacts;
 using Centroware.Model.ViewModels.HomeVms;
 using Centroware.Model.ViewModels.Services;
 using Centroware.Model.ViewModels.Settings;
+using Centroware.Model.ViewModels.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,6 @@ namespace Centroware.Service.Interfaces
         Task<ContactVm> CreateContact(ContactVm contact);
         Task<List<ServiceVm>> GetServices();
         Task<WorksVm> GetWorksPage();
+        Task<WorkVm> GetWork(int id);
     }
 }

@@ -77,7 +77,6 @@ namespace Centroware.Web.Areas.Panel.Controllers.Work
             }
             return View(input);
         }
-
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {

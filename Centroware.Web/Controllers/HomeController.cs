@@ -37,6 +37,11 @@ namespace Centroware.Web.Controllers
             var response = await _homeService.GetWorksPage();
             return View(response);
         }
+        public async Task<IActionResult> WorkDetails(int id)
+        {
+            var response = await _homeService.GetWork(id);
+            return View(response);
+        }
         public async Task<string> CreateContact(ContactVm contact)
         {
             if (ModelState.IsValid)

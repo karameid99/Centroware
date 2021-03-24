@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Centroware.Model.DTOs.Works;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +18,6 @@ namespace Centroware.Model.ViewModels.Works
         public string OurPart { get; set; }
         public string Category { get; set; }
         public string CreatedAt { get; set; }
+        public List<CreateArticleDto> Articles { get; set; }
     }
 }
